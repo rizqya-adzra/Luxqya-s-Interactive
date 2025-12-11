@@ -11,7 +11,7 @@ export default {
         primary: "#E24050",
         complimentary: "#009DA8",
         secondary: "#FFEEDE",
-        tertiary: "#FFFFFF",
+        tertiary: "#EAE5DC",
       },
     },
   },
