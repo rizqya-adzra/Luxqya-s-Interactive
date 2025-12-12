@@ -22,30 +22,36 @@
             </div>
         </div>
         <img src="assets/images/bg-1.png" alt="" class="absolute left-0 w-full -mt-60 z-0">
-        <div class="relative z-10 pt-[210px] text-center"> 
-            <div class="absolute top-52 right-[510px]">
+        <div class="relative z-10 pt-[210px] text-center about-section">
+            <div class="absolute top-52 right-[510px] about-anim-star">
                 <img src="assets/images/stars/white.png" alt="" class="w-12">
             </div>
-            <div class="absolute top-72 right-[200px]">
+            <div class="absolute top-72 right-[200px] about-anim-item">
                 <InteractiveStar :src="star1" class="w-12"/>
             </div>
-            <div class="absolute top-64 left-[200px]">
+            <div class="absolute top-64 left-[200px] about-anim-item">
                 <InteractiveStar :src="star_circledwhiteblue" class="w-20"/>
             </div>
-            <div class="absolute -bottom-24 left-[55px]">
+            <div class="absolute -bottom-24 left-[55px] about-anim-item z-50">
                 <img src="assets/images/stars/twins.png" alt="" class="w-48">
             </div>
-            <div class="absolute -bottom-36 right-[200px]">
+            <div class="absolute -bottom-36 right-[200px] about-anim-item">
                 <InteractiveStar :src="star_circledwhiteblue" class="w-20"/>
             </div>
-            <p class="font-playfair text-8xl font-black text-secondary mb-16">About Me</p>
-            <CardsAboutMeCard />
+            <p class="font-playfair text-8xl font-black text-secondary mb-16 about-anim-text">
+                About Me
+            </p>
+            <div class="about-anim-item">
+                <CardsAboutMeCard />
+            </div>
         </div>
-        <div class="relative mt-[500px]">
-            <div class="absolute -bottom-24 right-[80px] z-20">
+        <div class="relative mt-[500px] service-section">
+            <div class="absolute -bottom-24 right-[80px] z-20 service-anim-star">
                 <HoverStar :src="gif_circledprimary" size="w-44"/>
             </div>
-            <CardsServicesCard/>
+            <div class="service-anim-item">
+                <CardsServicesCard/>
+            </div>
         </div>
         <div class="relative">
             <div class="absolute top-44 left-44">
@@ -100,6 +106,14 @@ import star_circledprimary from "~/assets/images/stars/circledprimary.png"
 import wip from "~/assets/images/wip.png"
 import gif_circledprimary from "~/assets/gif/red_circledstar.gif"
 import gif_circledsecondary from "~/assets/gif/blue_circledstar.gif"
+import { onMounted } from "vue";
+import { aboutPopupAnimation } from "~/utils/animations/aboutPopUp";
+import { servicesCardAnimation } from "~/utils/animations/servicesCard";
+
+onMounted(() => {
+  aboutPopupAnimation();
+  servicesCardAnimation();
+});
 
 const faqs = [
   { q: "Bagaimana cara memesan?", a: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatges. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatges. Lorem ipsum dolor sit amet, consectetur adipiscing elit," },

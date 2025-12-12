@@ -1,72 +1,74 @@
 export default defineNuxtPlugin(() => {
   if (process.server) return;
 
-  const pawContainer = document.createElement("div");
-  Object.assign(pawContainer.style, {
+  const container = document.createElement("div");
+  Object.assign(container.style, {
     position: "fixed",
     inset: "0",
     pointerEvents: "none",
     zIndex: "999999",
   });
-  document.body.appendChild(pawContainer);
+  document.body.appendChild(container);
 
-  function getBackgroundColorAtPoint(x: number, y: number) {
+  function getBg(x: number, y: number) {
     const el = document.elementFromPoint(x, y) as HTMLElement;
-    if (!el) return null;
-
-    const styles = window.getComputedStyle(el);
-    let bg = styles.backgroundColor;
-
-    if (bg === "rgba(0, 0, 0, 0)" || bg === "transparent") {
-      return "rgb(255,255,255)";
-    }
-
-    return bg;
+    if (!el) return "white";
+    const bg = getComputedStyle(el).backgroundColor;
+    return bg === "transparent" || bg === "rgba(0, 0, 0, 0)" ? "black" : bg;
   }
 
-  function createPaw(x: number, y: number) {
-    const img = document.createElement("img");
-    img.src = pawImage;
+  function createSlash(x: number, y: number) {
+    const color = getBg(x, y);
 
-    const bgColor = getBackgroundColorAtPoint(x, y);
-
-    const angle = Math.random() * 60 - 30;
-
-    Object.assign(img.style, {
+    const wrap = document.createElement("div");
+    Object.assign(wrap.style, {
       position: "absolute",
       left: `${x}px`,
-      top: `${y}px`,
-      width: "70px",
+      top: `${y - 30}px`,
+      width: "40px",
+      height: "30px",
+      transform: "translate(-50%, -50%)",
       pointerEvents: "none",
-      opacity: "0",
-      transform: `translate(-50%, -50%) scale(0.3) rotate(${angle}deg)`,
-
-      filter: `drop-shadow(0 0 6px ${bgColor}) drop-shadow(0 0 12px ${bgColor})`,
-      mixBlendMode: "screen",
-
-      transition:
-        "transform 0.35s cubic-bezier(.2,1.4,.4,1), opacity 0.4s ease-out",
     });
 
-    pawContainer.appendChild(img);
+    const offsets = [-40, -10, 20];
+    const angles = [-45, -10, 25];
 
-    requestAnimationFrame(() => {
-      img.style.opacity = "1";
-      img.style.transform = `translate(-50%, -60%) scale(1) rotate(${angle}deg)`;
+    offsets.forEach((offset, i) => {
+      const line = document.createElement("div");
+      Object.assign(line.style, {
+        position: "absolute",
+        left: `calc(50% + ${offset}px)`,
+        top: "0",
+        width: "5px",
+        height: "35px",
+        background: color,
+        borderRadius: "4px",
+        transform: `translateX(-50%) rotate(${angles[i]}deg) scaleY(0)`,
+        opacity: "0",
+        transition:
+          "transform .10s cubic-bezier(.0,0.5,.10,1), opacity .20s ease",
+      });
+
+      wrap.appendChild(line);
+
+      requestAnimationFrame(() => {
+        line.style.opacity = "1";
+        line.style.transform = `translateX(-50%) rotate(${angles[i]}deg) scaleY(1)`;
+      });
+
+      setTimeout(() => {
+        line.style.transform = `translateX(-50%) rotate(${angles[i]}deg) translateY(-10px) scaleY(0.4)`;
+        line.style.opacity = "0";
+      }, 230);
     });
 
-    setTimeout(() => {
-      const exitAngle = angle + (Math.random() * 40 - 20);
-      img.style.transform = `translate(-50%, -80%) scale(0.8) rotate(${exitAngle}deg)`;
-      img.style.opacity = "0";
-    }, 300);
+    container.appendChild(wrap);
 
-    setTimeout(() => img.remove(), 650);
+    setTimeout(() => wrap.remove(), 550);
   }
 
   window.addEventListener("click", (e) => {
-    createPaw(e.clientX, e.clientY);
+    createSlash(e.clientX, e.clientY);
   });
 });
-
-const pawImage = new URL("~/assets/effects/paw.png", import.meta.url).href;
