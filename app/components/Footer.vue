@@ -18,14 +18,14 @@
           <p class="font-poppins font-bold text-3xl">Sections</p>
           <div class="flex justify-between gap-32 items-center">
             <div class="space-y-2">
-              <ButtonsFooterButton buttonName="Home"/>
-              <ButtonsFooterButton buttonName="About"/>
-              <ButtonsFooterButton buttonName="Service"/>
+              <ButtonsFooterButton buttonName="Home" @click="navbarScroll('start')"/>
+              <ButtonsFooterButton buttonName="About" @click="navbarScroll('about')"/>
+              <ButtonsFooterButton buttonName="Service" @click="navbarScroll('service')"/>
             </div>
             <div class="space-y-2">
-              <ButtonsFooterButton buttonName="Review"/>
-              <ButtonsFooterButton buttonName="Gallery"/>
-              <ButtonsFooterButton buttonName="FAQ"/>
+              <ButtonsFooterButton buttonName="Review" @click="navbarScroll('testimony')"/>
+              <ButtonsFooterButton buttonName="Gallery" @click="navbarScroll('gallery')"/>
+              <ButtonsFooterButton buttonName="FAQ" @click="navbarScroll('FAQ')"/>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@
 
 <script setup>
 import bg from '~/assets/images/bg-4.png'
-
+import { navbarScroll } from "~/utils/animations/navbarScroll";
 </script>
 
 <style scoped>

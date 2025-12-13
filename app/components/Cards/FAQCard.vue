@@ -2,7 +2,7 @@
   <div class="m-auto mt-2 bg-[#FFFAF0] rounded-md w-[1200px] py-4 cursor-pointer hover:bg-white" @click="toggle">
     <div class="flex justify-between px-8 items-center">
       <h3 class="font-poppins text-lg font-bold">{{ question }}</h3>
-      <div class="bg-primary px-7 py-1 flex items-center rounded">
+      <div :class="['bg-primary px-7 py-1 flex items-center rounded', { 'bg-secondary': isOpen }]">
         <div class="bg-secondary rounded-full flex items-center">
           <Icon
             name="mdi:chevron-double-down"

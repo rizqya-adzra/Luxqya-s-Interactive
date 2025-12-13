@@ -1,10 +1,26 @@
 <template>
     <div class="relative">
-        <div class="mx-14 relative z-10">
-            <div class="absolute top-20 right-[730px]">
-                <img :src="wip" class="w-20"/>
+        <Header />
+        <div class="sticky-navbar fixed top-4 left-1/2 -translate-x-1/2 w-[1300px] h-[80px] mx-auto z-50 rounded-full bg-gray-900/90 backdrop-blur-md text-secondary flex items-center justify-between px-16 py-2">
+            <button class="font-playfair font-black text-2xl" @click="navbarScroll('start')">LUXQYA</button>
+            <div class="flex gap-5">
+                <ButtonsNav1Button class="text-secondary" buttonName="About Me" @click="navbarScroll('about')"/>
+                <ButtonsNav1Button class="text-secondary" buttonName="Service" @click="navbarScroll('service')"/>
+                <ButtonsNav1Button class="text-secondary" buttonName="Testimony" @click="navbarScroll('testimony')"/>
+                <ButtonsNav1Button class="text-secondary" buttonName="Gallery" @click="navbarScroll('gallery')"/>
+                <ButtonsNav1Button class="text-secondary" buttonName="Contact" @click="navbarScroll('contact')"/>
             </div>
-            <div class="absolute top-20 right-14">
+            <a  href="https://trello.com/b/4dYYaxuy/luxqyas-commissions-list"
+                class="bg-primary hover:bg-secondary px-5 py-4 flex transition-all duration-300 font-poppins font-black text-secondary hover:text-primary rounded-full"
+            >
+                Work Queue
+            </a>
+        </div>
+        <div id="start" class="mx-14 relative z-10 start-section">
+            <!-- <div class="absolute top-20 right-[730px]">
+                <img :src="wip" class="w-20"/>
+            </div> -->
+            <div class="absolute top-16 right-14">
                 <InteractiveStar :src="star1"/>
             </div>
             <div class="absolute bottom-36 right-[650px]">
@@ -21,11 +37,12 @@
                 </div>
             </div>
         </div>
-        <img src="assets/images/bg-1.png" alt="" class="absolute left-0 w-full -mt-60 z-0">
+        <img src="assets/images/bg-1.png" alt="" class="absolute left-0 w-full -mt-56 z-0">
         <div class="relative z-10 pt-[210px] text-center about-section">
-            <div class="absolute top-52 right-[510px] about-anim-star">
+            <div class="absolute top-52 right-[510px] about-anim-star1">
                 <img src="assets/images/stars/white.png" alt="" class="w-12">
             </div>
+            <div id="about"></div>
             <div class="absolute top-72 right-[200px] about-anim-item">
                 <InteractiveStar :src="star1" class="w-12"/>
             </div>
@@ -35,7 +52,7 @@
             <div class="absolute -bottom-24 left-[55px] about-anim-item z-50">
                 <img src="assets/images/stars/twins.png" alt="" class="w-48">
             </div>
-            <div class="absolute -bottom-36 right-[200px] about-anim-item">
+            <div class="absolute -bottom-56 right-[200px] about-anim-star2">
                 <InteractiveStar :src="star_circledwhiteblue" class="w-20"/>
             </div>
             <p class="font-playfair text-8xl font-black text-secondary mb-16 about-anim-text">
@@ -45,28 +62,30 @@
                 <CardsAboutMeCard />
             </div>
         </div>
-        <div class="relative mt-[500px] service-section">
+        <div id="service" class="relative mt-[500px] service-section">
             <div class="absolute -bottom-24 right-[80px] z-20 service-anim-star">
                 <HoverStar :src="gif_circledprimary" size="w-44"/>
             </div>
-            <div class="service-anim-item">
+            <div class="">
                 <CardsServicesCard/>
             </div>
         </div>
-        <div class="relative">
-            <div class="absolute top-44 left-44">
+        <div id="testimony" class="relative testimony-section">
+            <div class="absolute top-44 left-44 testimony-anim-star">
                 <InteractiveStar :src="star1" class="w-16"/>
             </div>
-            <p class="mt-48 mb-16 font-playfair text-8xl font-black text-primary text-center">What They Say?</p>
-            <CardsTestimonyCard/>
+            <p class="mt-48 mb-16 font-playfair text-8xl font-black text-primary text-center testimony-anim-text">What They Say?</p>
+            <div class="testimony-anim-item">
+                <CardsTestimonyCard/>
+            </div>
         </div>
-        <div class="space-y-4 px-28 mt-48 bg-secondary">
-            <div class="h-4 w-full rounded-full bg-gradient-to-r from-complimentary to-primary"></div>
-            <div class="h-4 w-[85%] rounded-full bg-gradient-to-r from-complimentary to-primary"></div>
-            <div class="h-4 w-[75%] rounded-full bg-gradient-to-r from-complimentary to-primary"></div>
+        <div class="space-y-4 px-28 mt-64 bg-secondary line-section">
+            <div class="h-4 w-full rounded-full bg-gradient-to-r from-complimentary to-primary line-anim-item1"></div>
+            <div class="h-4 w-[85%] rounded-full bg-gradient-to-r from-complimentary to-primary line-anim-item2"></div>
+            <div class="h-4 w-[75%] rounded-full bg-gradient-to-r from-complimentary to-primary line-anim-item3"></div>
         </div>
-        <div class="relative">
-            <p class="mt-48 mb-10 font-playfair text-8xl font-black text-primary text-center">Gallery</p>
+        <div id="gallery" class="relative">
+            <p class="mt-64 mb-10 font-playfair text-8xl font-black text-primary text-center">Gallery</p>
             <div class="absolute top-0 right-[550px]">
                 <img src="assets/images/stars/primary.png" alt="" class="w-12">
             </div>
@@ -78,7 +97,7 @@
             </div>
             <CardsGalleryCard/>
         </div>
-        <div class="mb-44 relative">
+        <div id="FAQ" class="mb-44 relative">
             <div class="absolute top-12 right-[200px]">
                 <InteractiveStar :src="star1" class="w-12"/>
             </div>
@@ -92,6 +111,9 @@
                 :question="item.q"
                 :answer="item.a"
             />
+        </div>
+        <div id="contact">
+            <Footer />
         </div>
     </div>
 </template> 
@@ -109,10 +131,17 @@ import gif_circledsecondary from "~/assets/gif/blue_circledstar.gif"
 import { onMounted } from "vue";
 import { aboutPopupAnimation } from "~/utils/animations/aboutPopUp";
 import { servicesCardAnimation } from "~/utils/animations/servicesCard";
+import { testimonyCardAnimation } from "~/utils/animations/testimonyCard";
+import { lineAnimation } from "~/utils/animations/lineAnimation";
+import { navbarAnimation } from "~/utils/animations/navbarAnimation";
+import { navbarScroll } from "~/utils/animations/navbarScroll";
 
 onMounted(() => {
   aboutPopupAnimation();
   servicesCardAnimation();
+  testimonyCardAnimation();
+  lineAnimation();
+  navbarAnimation();
 });
 
 const faqs = [

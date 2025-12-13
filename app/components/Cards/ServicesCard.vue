@@ -1,6 +1,6 @@
 <template>
-  <div class="relative w-full">
-    <div class="absolute left-24 -top-5 z-20">
+  <div ref="serviceRoot" class="service-section relative">
+    <div class="absolute left-24 -top-5 z-20 service-anim-text">
       <div class="w-48 h-[620px] bg-gradient-to-b from-primary to-complimentary flex items-center justify-center">
         <p class="text-white font-serif text-7xl flex flex-col items-center leading-none -space-y-3">
           <span>S</span>
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div class="absolute right-[490px] -top-14 z-20">
+    <div class="absolute right-[490px] -top-14 service-anim-button">
       <div class="relative w-fit group flex items-center justify-center">
         <button
           class="bg-complimentary px-5 py-4 font-poppins font-bold text-secondary
@@ -29,22 +29,21 @@
                 max-h-0 opacity-0 transition-all -translate-y-20
                 group-hover:max-h-40 group-hover:opacity-100 group-hover:p-2"
         >
-        <div class="flex justify-center">
-          <ButtonsNav2Button buttonName="Terms of Service" @click="openServicesPopUp = true"/>
+          <div class="flex justify-center">
+            <ButtonsNav2Button buttonName="Terms of Service" @click="openServicesPopUp = true"/>
+          </div>
         </div>
       </div>
     </div>
 
-    </div>
-
-      <div
-    class="w-[1200px] h-[580px] m-auto bg-[#FFFAF0] rounded-xl p-10 justify-center items-start flex gap-48 relative z-10 ml-48 shadow-[4px_0_6px_rgba(0,0,0,0.2)]"
-    :style="{
-      backgroundImage: `url(${bg})`,
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat'
-    }"
-  >
+    <div
+      class="w-[1200px] h-[580px] m-auto bg-[#FFFAF0] rounded-xl p-10 justify-center items-start flex gap-48 relative z-10 ml-48 shadow-[4px_0_6px_rgba(0,0,0,0.2)] service-anim-item1"
+      :style="{
+        backgroundImage: `url(${bg})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      }"
+    >
       <div class="ml-9">
         <div class="flex-1 grid grid-cols-2">
           <div class="flex justify-center">
@@ -142,11 +141,11 @@
     </div>
     <div
       class="absolute top-5 left-48 w-[1220px] h-[540px] bg-[#FFFAF0] rounded-xl
-            shadow-[4px_0_4px_rgba(0,0,0,0.1)] z-8"
+            shadow-[4px_0_4px_rgba(0,0,0,0.1)] z-8 service-anim-item2"
     ></div>
     <div
       class="absolute top-3 left-48 w-[1210px] h-[560px] bg-[#FFFAF0] rounded-xl
-            shadow-[4px_0_4px_rgba(0,0,0,0.2)] z-9"
+            shadow-[4px_0_4px_rgba(0,0,0,0.2)] z-9 service-anim-item3"
     ></div>
   </div>
   <PopUpsServicesPopUp 
@@ -157,6 +156,18 @@
 
 <script setup>
 import bg from '~/assets/images/bg-2.png'
+import { ref, onMounted, onBeforeUnmount } from "vue"
+import { servicesCardAnimation } from "~/utils/animations/servicesCard"
 
+const serviceRoot = ref(null)
+let cleanup
+
+onMounted(() => {
+  cleanup = servicesCardAnimation(serviceRoot)
+})
+
+onBeforeUnmount(() => {
+  cleanup?.()
+})
 const openServicesPopUp = ref(false)
 </script>

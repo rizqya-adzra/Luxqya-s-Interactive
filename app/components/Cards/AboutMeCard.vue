@@ -1,5 +1,5 @@
 <template>
-<div class="flex w-[1300px] h-[450px] m-auto rounded-lg bg-secondary justify-between">
+<div class="flex w-[1200px] h-[450px] m-auto rounded-lg bg-secondary justify-between">
 
   <div class="flex flex-col gap-10 px-9 py-5 text-black w-[65%]">
     <ButtonsLanguageSwitchButton/>

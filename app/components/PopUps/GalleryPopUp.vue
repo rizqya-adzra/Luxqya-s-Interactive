@@ -22,9 +22,12 @@
         </div>
 
         <img 
-          :src="modelValue.src"
-          class="block max-w-[70vw] max-h-[70vh] w-auto h-auto object-contain border-[14px] border-white shadow-md"
+          v-if="modelValue?.images?.high"
+          :src="modelValue.images.high"
+          class="block max-w-[70vw] max-h-[70vh] w-auto h-auto object-contain 
+                border-[14px] border-white shadow-md"
         />
+
         <div class="flex justify-between items-center mt-5">
           <p class="font-poppins font-bold">
             COMMISSION for: 
@@ -41,36 +44,38 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import bg from '~/assets/images/bg-4.png'
+import bg from "~/assets/images/bg-4.png";
 
-const props = defineProps({
-  modelValue: {
-    type: Object,
-    default: null
-  }
-});
+const props = defineProps<{
+  modelValue: any | null;
+}>();
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits(["update:modelValue"]);
 
 function close() {
-  emit('update:modelValue', null);
+  emit("update:modelValue", null);
 }
 
+/* 🧑 COMMISSIONER */
 const getCommissioner = computed(() => {
-  if (!props.modelValue) return "";
-  const file = props.modelValue.src.split("/").pop();
-  return file?.startsWith("@") ? file.replace(".jpg", "") : "Anonymous";
+  if (!props.modelValue?.commissioner?.length) return "Anonymous";
+
+  return props.modelValue.commissioner
+    .map((c: any) => c.name)
+    .join(", ");
 });
 
+/* 🔗 SOURCES */
 const mappedSources = computed(() => {
-  if (!props.modelValue) return [];
+  if (!props.modelValue?.sources) return [];
 
-  return props.modelValue.sources.map(s => ({
+  return props.modelValue.sources.map((s: any) => ({
     type: s.name.toLowerCase(),
     link: s.url
   }));
 });
 </script>
+
 
 <style>
 .slide-up-enter-from {
