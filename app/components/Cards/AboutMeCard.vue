@@ -9,13 +9,13 @@
 
       <section v-if="activeSection === 'about'" key="about" class="space-y-5 text-start">
         <div class="flex space-x-24 mb-10">
-          <div class="space-y-2 font-poppins font-bold text-lg text-start">
+          <div class="space-y-2 font-poppins font-bold text-xl text-start">
             <p>Name</p>
             <p>You can call me</p>
             <p>Birthday</p>
             <p>Languages</p>
           </div>
-          <div class="space-y-2 font-poppins font-bold text-start text-lg text-primary">
+          <div class="space-y-2 font-poppins font-bold text-start text-xl text-primary">
             <p>: Luxqya Ra</p>
             <p>: Lux / Qya</p>
             <p>: 31st July</p>

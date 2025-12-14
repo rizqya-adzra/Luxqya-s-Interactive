@@ -21,16 +21,19 @@
                 <InteractiveStar :src="star1"/>
             </div>
             <div class="absolute bottom-56 right-[650px]">
-                <InteractiveStar :src="star2" class="w-10"/>
+                <InteractiveStar :src="star2" class="w-5"/>
             </div>
             <div class="flex items-start justify-between">
-                <img src="assets/images/Main Image.png" alt="" class="w-[85vh]">
+                <StartImage class="ml-2" />
                 <div class="flex flex-col items-end gap-10 py-32 px-10">
                     <div>
                         <p class="font-playfair text-8xl font-black text-primary text-end">Hii It's <span class=" text-complimentary underline"> Luxqya!</span> Your Beloved </p>
                         <p class="font-playfair text-8xl font-black text-primary text-end hero-text">3D-Modeller</p>
                     </div>
-                    <ButtonsCommissionButton />
+                    <div class="flex gap-32 justify-between">
+                        <img :src="wip" alt="" class="w-20">
+                        <ButtonsCommissionButton />
+                    </div>
                 </div>
             </div>
         </div>
@@ -163,48 +166,3 @@ onMounted(() => {
   });
 });
 </script>
-
-<style>
-.underline-gradient-dotted {
-  position: relative;
-  display: inline-block;
-}
-
-.underline-gradient-dotted::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -15px; 
-  height: 14px; 
-  background-image: 
-    radial-gradient(circle, #E24050 30%, transparent 30%),
-    radial-gradient(circle, #D8686B 30%, transparent 30%),
-    radial-gradient(circle, #C47A7E 30%, transparent 30%),
-    radial-gradient(circle, #B8898C 30%, transparent 30%),
-    radial-gradient(circle, #A49AA1 30%, transparent 30%),
-    radial-gradient(circle, #8C8C9A 30%, transparent 30%),
-    radial-gradient(circle, #6F9FA3 30%, transparent 30%),
-    radial-gradient(circle, #4EA9AB 30%, transparent 30%),
-    radial-gradient(circle, #2CB2AD 30%, transparent 30%),
-    radial-gradient(circle, #00B7AC 30%, transparent 30%),
-    radial-gradient(circle, #00AFAA 30%, transparent 30%),
-    radial-gradient(circle, #009DA8 30%, transparent 30%),
-    radial-gradient(circle, #009DA8 30%, transparent 30%);
-  
-  background-size: 30px 30px;
-  background-repeat: no-repeat;
-  background-position:
-    0    50%,
-    26px 50%,
-    52px 50%,
-    78px 50%,
-    104px 50%,
-    130px 50%,  
-    156px 50%,
-    234px 50%,
-    260px 50%,
-    286px 50%,
-    312px 50%;
-}
-</style>

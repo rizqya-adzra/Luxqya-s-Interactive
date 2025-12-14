@@ -4,7 +4,7 @@
     href="https://vgen.co/luxqya_ra"
     class="relative overflow-hidden
            border-4 border-complimentary
-           rounded-lg px-7 py-3
+           rounded-lg px-7 py-2
            font-poppins font-black
            text-complimentary
            flex items-center gap-5"
@@ -14,7 +14,7 @@
       class="absolute inset-0 bg-complimentary -z-10"
     />
 
-    <span ref="text" class="relative z-10">
+    <span ref="text" class="relative z-10 text-lg">
       Commission Me!
     </span>
 
@@ -52,7 +52,7 @@ hoverIn = () => {
   gsap.to(bg.value, {
     xPercent: 0,
     duration: 0.35,
-    ease: 'power2.out'
+    ease: 'power1.out'
   })
 
   gsap.to(text.value, {
@@ -70,7 +70,7 @@ hoverIn = () => {
       gsap.set(iconWrap.value, { x: -1000 })
       gsap.to(iconWrap.value, {
         color: '#FFEEDE',
-        x: -150,
+        x: -165,
         duration: 0.2,
         ease: 'power2.out'
       })
@@ -84,7 +84,7 @@ hoverOut = () => {
   gsap.to(bg.value, {
     xPercent: -100,
     duration: 0.3,
-    ease: 'power2.in'
+    ease: 'power1.in'
   })
 
   gsap.to(text.value, {

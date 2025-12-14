@@ -56,10 +56,10 @@ export function aboutPopupAnimation() {
       scrub: 1,
     },
     opacity: 0,
-    y: 60,
+    y: 400,
     skewY: 25,
     duration: 1.1,
-    ease: "power3.out",
+    ease: "power2.out",
   });
 
 
