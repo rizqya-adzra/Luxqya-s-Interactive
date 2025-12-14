@@ -13,8 +13,8 @@ export const reviews = [
   {
     id: 2,
     name: "Maxxamuh",
-    order: "Fully Rendered!",
-    type: " Half Body with Background",
+    order: "Surprise ME!",
+    type: "Bust Up",
     stars: 5,
     review:
     "Amazing work! 💖 Amazing work! 💖Amazing work! 💖Amazing work! 💖Amazing work! 💖",
@@ -24,8 +24,8 @@ export const reviews = [
   {
     id: 3,
     name: "Shiromochito",
-    order: "Surprise ME!",
-    type: "Bust Up",
+    order: "Fully Rendered!",
+    type: " Half Body with Background",
     stars: 5,
     review:
       "WAAAAAAAA thank u so much kakk  i love it so muchhh huhu",

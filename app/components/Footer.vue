@@ -1,13 +1,14 @@
 <template>
-  <div class="relative m-auto bg-primary rounded-t-3xl w-[1230px] h-[710px] flex justify-center items-center z-20 shadow-xl custom-dashed">
-    <div class="bg-[#FFFAF0] w-[1100px] h-[600px] mt-10 p-14 flex flex-col justify-center z-64 gap-10 rounded-lg shadow-[4px_4px_3px_rgba(0,0,0,0.2)]"
+  <div ref="footerRoot" class="footer-section">
+  <div  class="relative m-auto bg-primary rounded-t-3xl w-[1230px] h-[710px] flex justify-center items-center z-20 shadow-xl custom-dashed footer-anim-red">
+    <div class="absolute top-24 left-20 w-[1100px] h-[600px] bg-[#FFFAF0] rounded-xl -z-20 footer-anim-star"></div>
+    <div class="bg-[#FFFAF0] w-[1100px] h-[600px] mt-10 p-14 flex flex-col justify-center z-64 gap-10 rounded-lg shadow-[4px_4px_3px_rgba(0,0,0,0.2)] footer-anim-item"
       :style="{
       backgroundImage: `url(${bg})`,
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat'
     }"
     >
-      <div class="absolute top-24 left-20 w-[1100px] h-[600px] bg-[#FFFAF0] rounded-xl -z-10"></div>
       <div class="space-y-3">
         <p class="font-playfair font-bold text-6xl">Have an Intriguing Idea?</p>
         <p class="font-poppins font-bold text-lg">Let's bring it to life together!</p>
@@ -51,14 +52,28 @@
       <p class="font-poppins font-bold text-lg">© Copyright 2025 Luxqya_ra.</p>
     </div>
   </div>
+  </div>
 </template>
 
 <script setup>
 import bg from '~/assets/images/bg-4.png'
 import { navbarScroll } from "~/utils/animations/navbarScroll";
+import { ref, onMounted, onBeforeUnmount } from "vue"
+import { footerAnimation } from "~/utils/animations/footerAnimation"
+
+const footerRoot = ref(null)
+let cleanup
+
+onMounted(() => {
+  cleanup = footerAnimation(footerRoot)
+})
+
+onBeforeUnmount(() => {
+  cleanup?.()
+})
 </script>
 
-<style scoped>
+<style>
 .custom-dashed::before {
   content: "";
   position: absolute;
@@ -66,15 +81,11 @@ import { navbarScroll } from "~/utils/animations/navbarScroll";
   top: 20px; 
   left: 20px;
   right: 20px;
-
   height: calc(100% - 20px); 
-
   border-top: 4px dashed #FFEEDE;
   border-left: 4px dashed #FFEEDE;
   border-right: 4px dashed #FFEEDE;
-
   border-bottom: none;
-
   border-radius: 24px 24px 0 0;  
   pointer-events: none;
 }

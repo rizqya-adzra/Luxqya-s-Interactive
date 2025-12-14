@@ -9,11 +9,11 @@
 
       <transition name="slide">
         <div
-          class="relative bg-primary rounded-3xl w-[1200px] h-[630px] p-12 flex justify-center items-center z-50 shadow-xl overflow-y-auto outline-4 outline-secondary outline-dashed outline-offset-[-25px]"
+          class="relative bg-primary rounded-3xl w-[1200px] h-[680px] p-12 flex justify-center items-center z-50 shadow-xl overflow-y-auto outline-4 outline-secondary outline-dashed outline-offset-[-25px]"
           @click.stop
         >
           <div class="flex">
-            <div class="bg-secondary w-[550px] h-[530px] p-10 flex flex-col gap-6 rounded-l-lg overflow-y-auto">
+            <div class="bg-secondary w-[550px] h-[570px] p-10 flex flex-col gap-6 rounded-l-lg overflow-y-auto">
               <ButtonsLanguageSwitchButton/>
               <div>
                 <p class="font-playfair font-bold text-2xl">1. Copyrights</p>
@@ -39,7 +39,7 @@
               </div>
             </div>
 
-            <div class="bg-tertiary w-[550px] h-[530px] p-12 flex flex-col gap-6 rounded-r-lg overflow-y-auto">
+            <div class="bg-tertiary w-[550px] h-[570px] p-12 flex flex-col gap-6 rounded-r-lg overflow-y-auto">
               <div>
                 <p class="font-playfair font-bold text-2xl">3. Pricing</p>
                 <div class="font-poppins mt-2">
@@ -53,7 +53,7 @@
                 </div>
               </div>
               <div class="w-full">
-                <table class="w-full border-collapse font-poppins text-center text-sm">
+                <table class="w-full border-collapse font-poppins text-center">
                   <thead>
                     <tr class="bg-complimentary text-white">
                       <th class="p-4">Can Do</th>

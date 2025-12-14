@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div class="absolute right-[490px] -top-14 service-anim-button">
+    <!-- <div class="absolute right-[490px] -top-14 service-anim-button">
       <div class="relative w-fit group flex items-center justify-center">
         <button
           class="bg-complimentary px-5 py-4 font-poppins font-bold text-secondary
@@ -23,7 +23,6 @@
         >
           ◆ Commissions Open
         </button>
-
         <div
           class="absolute top-full left-0 w-full bg-[#FFFAF0] overflow-hidden
                 max-h-0 opacity-0 transition-all -translate-y-20
@@ -34,57 +33,74 @@
           </div>
         </div>
       </div>
+    </div> -->
+    
+    <div class="absolute right-[490px] -top-14 service-anim-button">
+      <div class="relative w-fit group flex items-center justify-center">
+        <button  
+          @click="openServicesPopUp = true"
+          class="bg-complimentary px-5 pb-10 pt-4 font-poppins font-bold text-secondary
+                relative z-10 transition-all duration-200 group-hover:-translate-y-5 hover:bg-primary"
+        >
+          <span ref="diamondEl" class="inline-block">
+            <Icon name="mdi:chevron-double-up" />
+          </span>
+          Terms of Service
+        </button>
+      </div>
     </div>
 
     <div
-      class="w-[1200px] h-[580px] m-auto bg-[#FFFAF0] rounded-xl p-10 justify-center items-start flex gap-48 relative z-10 ml-48 shadow-[4px_0_6px_rgba(0,0,0,0.2)] service-anim-item1"
+      class="w-[1200px] h-[580px] m-auto bg-[#FFFAF0] rounded-xl p-10 justify-center items-start flex relative z-10 ml-48 shadow-[4px_0_6px_rgba(0,0,0,0.2)] service-anim-item1"
       :style="{
         backgroundImage: `url(${bg})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
       }"
     >
-      <div class="ml-9">
-        <div class="flex-1 grid grid-cols-2">
+      <div>
+        <div class="flex-1 grid grid-cols-2 mr-20 mt-5">
           <div class="flex justify-center">
-            <img
-              src="assets/images/full_render_sample.jpg"
-              class="w-48 h-fit -rotate-6 border-8 shadow-md border-white"
-              alt="sample"
-            />
+            <div class="w-48 aspect-[3/4] overflow-hidden -rotate-6 border-8 border-white shadow-md">
+              <img
+                src="assets/images/full_render_sample.jpg"
+                alt="sample"
+                class="w-full h-full object-cover"
+              />
+            </div>
           </div>
           <div class="font-poppins">
             <h2 class="font-bold text-3xl text-primary mb-4">Full Render</h2>
             <ul class="space-y-3 font-medium">
               <li class="flex justify-between">
                 <span class="font-semibold">Headshot</span>
-                <span class="mx-1 tracking-widest">..............</span>
+                <span class="mx-1 tracking-widest">............................</span>
                 <span class="font-bold text-complimentary">Rp100K | 30$</span>
               </li>
               <li class="flex justify-between">
                 <span class="font-semibold">Bust Up</span>
-                <span class="mx-1 tracking-widest">..............</span>
+                <span class="mx-1 tracking-widest">.............................</span>
                 <span class="font-bold text-complimentary">Rp140K | 45$</span>
               </li>
               <li class="flex justify-between">
                 <span class="font-semibold">Half Body</span>
-                <span class="mx-1 tracking-widest">..............</span>
+                <span class="mx-1 tracking-widest">............................</span>
                 <span class="font-bold text-complimentary">Rp200K | 65$</span>
               </li>
               <li class="flex justify-between">
                 <span class="font-semibold">Knee Up</span>
-                <span class="mx-1 tracking-widest">................</span>
+                <span class="mx-1 tracking-widest">.............................</span>
                 <span class="font-bold text-complimentary">Rp250K | 75$</span>
               </li>
               <li class="flex justify-between">
                 <span class="font-semibold">Full Body</span>
-                <span class="mx-1 tracking-widest">..............</span>
+                <span class="mx-1 tracking-widest">............................</span>
                 <span class="font-bold text-complimentary">Rp300K | 90$</span>
               </li>
             </ul>
           </div>
         </div>
-        <div class="flex-1 grid grid-cols-2">
+        <div class="flex-1 grid grid-cols-2 mr-20">
           <div class="flex justify-center">
             <img
               src="assets/images/chibis_sample.jpg"
@@ -97,12 +113,12 @@
               <ul class="space-y-3 font-medium">
                 <li class="flex justify-between">
                   <span class="font-semibold">Headshot</span>
-                  <span class="mx-1 tracking-widest">.............</span>
+                  <span class="mx-1 tracking-widest">............................</span>
                   <span class="font-bold text-complimentary">Rp100K | 30$</span>
                 </li>
                 <li class="flex justify-between">
                   <span class="font-semibold">Full Body</span>
-                  <span class="mx-1 tracking-widest">..............</span>
+                  <span class="mx-1 tracking-widest">............................</span>
                   <span class="font-bold text-complimentary">Rp300K | 90$</span>
                 </li>
               </ul>
@@ -158,12 +174,22 @@
 import bg from '~/assets/images/bg-2.png'
 import { ref, onMounted, onBeforeUnmount } from "vue"
 import { servicesCardAnimation } from "~/utils/animations/servicesCard"
+import gsap from "gsap"
 
+const diamondEl = ref(null)
 const serviceRoot = ref(null)
 let cleanup
 
 onMounted(() => {
-  cleanup = servicesCardAnimation(serviceRoot)
+  cleanup = servicesCardAnimation(serviceRoot),
+  gsap.to(diamondEl.value, {
+    y: -4,
+    rotate: 6,
+    duration: 1.2,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+  })
 })
 
 onBeforeUnmount(() => {

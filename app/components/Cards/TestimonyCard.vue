@@ -33,56 +33,52 @@
         backgroundRepeat: 'no-repeat'
       }"
     >
-      <Transition
-        :name="direction === 'next' ? 'text-next' : 'text-prev'"
-        mode="out-in"
-      >
-        <div :key="currentIndex">
-          <div class="flex items-start justify-between">
-            <div class="flex flex-col gap-2">
-              <div class="flex items-end gap-2">
-                <p class="text-primary font-poppins font-bold">by</p>
-                <p class="text-primary font-poppins font-bold text-4xl">
-                  {{ currentReview.name }}
-                </p>
-              </div>
-
-              <div class="flex gap-2">
-                <p class="font-poppins">order:</p>
-                <p class="font-poppins">
-                  {{ currentReview.order }} {{ currentReview.type }}
-                </p>
-              </div>
+      <div ref="textEl">
+        <div class="flex items-start justify-between">
+          <div class="flex flex-col gap-2">
+            <div class="flex items-end gap-2">
+              <p class="text-primary font-poppins font-bold">by</p>
+              <p class="text-primary font-poppins font-bold text-4xl">
+                {{ currentReview.name }}
+              </p>
             </div>
 
-            <div class="flex">
-              <Icon
-                v-for="n in currentReview.stars"
-                :key="n"
-                name="mdi:star"
-                size="45"
-                class="text-complimentary"
-              />
+            <div class="flex gap-2">
+              <p class="font-poppins">order:</p>
+              <p class="font-poppins">
+                {{ currentReview.order }} {{ currentReview.type }}
+              </p>
             </div>
           </div>
 
-          <div class="mt-24">
-            <p class="font-poppins font-medium text-2xl max-w-[700px]">
-              <span class="font-playfair font-bold text-5xl">“</span>
-              {{ currentReview.review }}
-              <span class="font-playfair font-bold text-5xl rotate-180">“</span>
-            </p>
+          <div class="flex">
+            <Icon
+              v-for="n in currentReview.stars"
+              :key="n"
+              name="mdi:star"
+              size="45"
+              class="text-complimentary"
+            />
           </div>
-
-          <a
-            :href="currentReview.link"
-            class="mt-20 font-poppins font-bold py-3 px-10 rounded-full inline-block"
-            :class="sourceButtonClass"
-          >
-            {{ "On " + currentReview.from }}
-          </a>
         </div>
-      </Transition>
+
+        <div class="mt-24">
+          <p class="font-poppins font-medium text-2xl max-w-[700px]">
+            <span class="font-playfair font-bold text-5xl">“</span>
+            {{ currentReview.review }}
+            <span class="font-playfair font-bold text-5xl rotate-180">“</span>
+          </p>
+        </div>
+
+        <a
+          :href="currentReview.link"
+          class="mt-20 font-poppins font-bold py-3 px-10 rounded-full inline-block"
+          :class="sourceButtonClass"
+        >
+          {{ "On " + currentReview.from }}
+        </a>
+      </div>
+
       <div class="absolute right-[-150px] top-[285px] flex flex-col gap-4">
         <ButtonsTestimonyButton
           buttonName="Next"
@@ -104,9 +100,12 @@
 <script setup>
 import bg from '~/assets/images/bg-3.png'
 import { reviews } from '~/utils/reviews.ts'
+import { ref, watch, nextTick, onMounted } from "vue"
+import gsap from "gsap"
 
 const currentIndex = ref(0)
 const currentReview = computed(() => reviews[currentIndex.value])
+const textEl = ref(null)
 
 const layers = [
   { top: 'top-2', left: 'left-12' },
@@ -158,81 +157,33 @@ const sourceButtonClass = computed(() => {
   return "bg-complimentary text-white"
 })
 
+onMounted(() => {
+  gsap.set(textEl.value, {
+    opacity: 1,
+    y: 0
+  })
+})
+
+watch(currentIndex, async () => {
+  if (!textEl.value) return
+
+  await nextTick()
+
+  const fromX = direction.value === "next" ? 50 : -50
+
+  gsap.fromTo(
+    textEl.value,
+    {
+      opacity: 0,
+      x: fromX,
+    },
+    {
+      opacity: 1,
+      x: 0,
+      duration: 0.55,
+      ease: "power3.out"
+    }
+  )
+})
+
 </script>
-
-<style>
-.text-next-enter-from {
-  opacity: 0;
-  transform:
-    translateX(30px)
-    rotate(2deg)
-    scale(0.98);
-}
-
-.text-next-enter-to {
-  opacity: 1;
-  transform:
-    translateX(0)
-    rotate(0deg)
-    scale(1);
-}
-
-.text-next-leave-from {
-  opacity: 1;
-  transform:
-    translateX(0)
-    rotate(0deg)
-    scale(1);
-}
-
-.text-next-leave-to {
-  opacity: 0;
-  transform:
-    translateX(-30px)
-    rotate(-2deg)
-    scale(0.98);
-}
-
-.text-prev-enter-from {
-  opacity: 0;
-  transform:
-    translateX(-30px)
-    rotate(-2deg)
-    scale(0.98);
-}
-
-.text-prev-enter-to {
-  opacity: 1;
-  transform:
-    translateX(0)
-    rotate(0deg)
-    scale(1);
-}
-
-.text-prev-leave-from {
-  opacity: 1;
-  transform:
-    translateX(0)
-    rotate(0deg)
-    scale(1);
-}
-
-.text-prev-leave-to {
-  opacity: 0;
-  transform:
-    translateX(30px)
-    rotate(2deg)
-    scale(0.98);
-}
-
-.text-next-enter-active,
-.text-next-leave-active,
-.text-prev-enter-active,
-.text-prev-leave-active {
-  transition:
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.4s ease;
-  transform-origin: center;
-  will-change: transform, opacity;
-}
-</style>

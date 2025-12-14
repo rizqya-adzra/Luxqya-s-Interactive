@@ -8,7 +8,7 @@
                 <ButtonsNav1Button class="text-secondary" buttonName="Service" @click="navbarScroll('service')"/>
                 <ButtonsNav1Button class="text-secondary" buttonName="Testimony" @click="navbarScroll('testimony')"/>
                 <ButtonsNav1Button class="text-secondary" buttonName="Gallery" @click="navbarScroll('gallery')"/>
-                <ButtonsNav1Button class="text-secondary" buttonName="Contact" @click="navbarScroll('contact')"/>
+                <ButtonsNav1Button class="text-secondary" buttonName="FAQ" @click="navbarScroll('faq')"/>
             </div>
             <a  href="https://trello.com/b/4dYYaxuy/luxqyas-commissions-list"
                 class="bg-primary hover:bg-secondary px-5 py-4 flex transition-all duration-300 font-poppins font-black text-secondary hover:text-primary rounded-full"
@@ -17,9 +17,6 @@
             </a>
         </div>
         <div id="start" class="mx-14 relative z-10 start-section">
-            <!-- <div class="absolute top-20 right-[730px]">
-                <img :src="wip" class="w-20"/>
-            </div> -->
             <div class="absolute top-16 right-14">
                 <InteractiveStar :src="star1"/>
             </div>
@@ -66,9 +63,7 @@
             <div class="absolute -bottom-24 right-[80px] z-20 service-anim-star">
                 <HoverStar :src="gif_circledprimary" size="w-44"/>
             </div>
-            <div class="">
-                <CardsServicesCard/>
-            </div>
+            <CardsServicesCard/>
         </div>
         <div id="testimony" class="relative testimony-section">
             <div class="absolute top-44 left-44 testimony-anim-star">
@@ -84,8 +79,8 @@
             <div class="h-4 w-[85%] rounded-full bg-gradient-to-r from-complimentary to-primary line-anim-item2"></div>
             <div class="h-4 w-[75%] rounded-full bg-gradient-to-r from-complimentary to-primary line-anim-item3"></div>
         </div>
-        <div id="gallery" class="relative">
-            <p class="mt-64 mb-10 font-playfair text-8xl font-black text-primary text-center">Gallery</p>
+        <div id="gallery" class="relative gallery-section">
+            <p class="mt-64 mb-10 font-playfair text-8xl font-black text-primary text-center gallery-anim-text">Gallery</p>
             <div class="absolute top-0 right-[550px]">
                 <img src="assets/images/stars/primary.png" alt="" class="w-12">
             </div>
@@ -95,24 +90,28 @@
             <div class="absolute top-12 left-[200px]">
                 <InteractiveStar :src="star_circledblue" class="w-20"/>
             </div>
-            <CardsGalleryCard/>
+            <div class="gallery-anim-item">
+                <CardsGalleryCard/>
+            </div>
         </div>
-        <div id="FAQ" class="mb-44 relative">
+        <div id="faq" class="mb-48 relative faq-section">
             <div class="absolute top-12 right-[200px]">
                 <InteractiveStar :src="star1" class="w-12"/>
             </div>
-            <div class="absolute -top-16 left-[150px]">
+            <div class="absolute -top-16 left-[150px] faq-anim-star">
                 <HoverStar :src="gif_circledsecondary" size="w-44" />
             </div>
-            <p class="mt-48 mb-20 font-playfair text-8xl font-black text-primary text-center">Frequently Asked <br> Questions.</p>
-            <CardsFAQCard
-                v-for="(item, i) in faqs"
-                :key="i"
-                :question="item.q"
-                :answer="item.a"
-            />
+            <p class="mt-48 mb-20 font-playfair text-8xl font-black text-primary text-center faq-anim-text">Frequently Asked <br> Questions.</p>
+            <div class="faq-anim-item">
+                <CardsFAQCard
+                    v-for="(item, i) in faqs"
+                    :key="i"
+                    :question="item.question"
+                    :answer="item.answer"
+                />
+            </div>
         </div>
-        <div id="contact">
+        <div id="contact" class="footer-section">
             <Footer />
         </div>
     </div>
@@ -135,6 +134,10 @@ import { testimonyCardAnimation } from "~/utils/animations/testimonyCard";
 import { lineAnimation } from "~/utils/animations/lineAnimation";
 import { navbarAnimation } from "~/utils/animations/navbarAnimation";
 import { navbarScroll } from "~/utils/animations/navbarScroll";
+import { galleryAnimation } from "~/utils/animations/galleryAnimation";
+import { faqAnimation } from "~/utils/animations/faqAnimation";
+import { footerAnimation } from "~/utils/animations/footerAnimation"
+import { faqs } from "~/utils/faq"
 
 onMounted(() => {
   aboutPopupAnimation();
@@ -142,15 +145,10 @@ onMounted(() => {
   testimonyCardAnimation();
   lineAnimation();
   navbarAnimation();
+  galleryAnimation();
+  faqAnimation();
+  footerAnimation()
 });
-
-const faqs = [
-  { q: "Bagaimana cara memesan?", a: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatges. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatges. Lorem ipsum dolor sit amet, consectetur adipiscing elit," },
-  { q: "Berapa lama proses pengerjaan?", a: "Rata-rata 3–7 hari tergantung antrian." },
-  { q: "Apakah revisi diperbolehkan?", a: "Boleh, maksimal 2 kali revisi kecil." },
-  { q: "Apakah revisi diperbolehkan?", a: "Boleh, maksimal 2 kali revisi kecil." },
-  { q: "Apakah revisi diperbolehkan?", a: "Boleh, maksimal 2 kali revisi kecil." },
-];
 </script>
 
 <style>

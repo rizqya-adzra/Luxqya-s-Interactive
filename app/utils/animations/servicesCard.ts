@@ -1,5 +1,4 @@
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 
 export function servicesCardAnimation(root) {
   const ctx = gsap.context(() => {
