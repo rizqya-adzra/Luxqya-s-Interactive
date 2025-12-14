@@ -52,7 +52,7 @@
             <div class="absolute -bottom-56 right-[200px] about-anim-star2">
                 <InteractiveStar :src="star_circledwhiteblue" class="w-20"/>
             </div>
-            <p class="font-playfair text-8xl font-black text-secondary mb-16 about-anim-text">
+            <p class="font-playfair text-8xl font-black text-secondary mb-10 about-anim-text">
                 About Me
             </p>
             <div class="about-anim-item">

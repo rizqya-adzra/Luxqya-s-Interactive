@@ -83,7 +83,11 @@ export const galleryImages = [
   },
   { images: { low: low5, med: med5, high: high5 }, sources: [] },
   { images: { low: low6, med: med6, high: high6 }, sources: [] },
-  { images: { low: low7, med: med7, high: high7 }, sources: [] },
+  { 
+    images: { low: low7, med: med7, high: high7 }, 
+    commissioner: [{ name: "@waopuu", url: "https://x.com/waopuu" }],
+    sources: [{ name: "X", url: "https://x.com/luxqya_ra/status/1935690558112153605/photo/1" }]
+  },
   { images: { low: low8, med: med8, high: high8 }, sources: [] },
   { images: { low: low9, med: med9, high: high9 }, sources: [] },
   { images: { low: low10, med: med10, high: high10 }, sources: [] },
