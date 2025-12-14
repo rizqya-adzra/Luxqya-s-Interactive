@@ -42,7 +42,7 @@
 
 <script setup lang="ts">
 import { computed, ref, watch, nextTick } from "vue";
-import gsap from "gsap";
+import { popupEnter, popupLeave } from "~/utils/animations/popUpAnimation";
 
 const props = defineProps<{ modelValue: any | null }>();
 const emit = defineEmits(["update:modelValue"]);
@@ -54,15 +54,9 @@ function close() {
     return;
   }
 
-  gsap.to(popupWrap.value, {
-    y: 1000,
-    opacity: 0,
-    duration: 0.6,
-    ease: "power2.in",
-    onComplete: () => {
-      emit("update:modelValue", null);
-      document.body.style.overflow = "";
-    },
+  popupLeave(popupWrap.value, () => {
+    emit("update:modelValue", null);
+    document.body.style.overflow = "";
   });
 }
 
@@ -74,16 +68,9 @@ watch(
     await nextTick();
     document.body.style.overflow = "hidden";
 
-    gsap.fromTo(
-      popupWrap.value,
-      { y: 1000, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: "power2.out",
-      }
-    );
+    if (popupWrap.value) {
+      popupEnter(popupWrap.value);
+    }
   }
 );
 
@@ -125,4 +112,3 @@ const mappedSources = computed(() => {
   z-index: 1;
 }
 </style>
-

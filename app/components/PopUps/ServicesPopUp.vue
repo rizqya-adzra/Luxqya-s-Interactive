@@ -1,14 +1,12 @@
 <template>
-  <transition name="fade">
-    <div v-if="open" class="fixed inset-0 z-[9999] flex items-center justify-center">
-      
-      <div
-        class="absolute inset-0 bg-black/70"
-        @click="close"
-      ></div>
-
-      <transition name="slide">
+    <div
+      v-if="open"
+      ref="overlay"
+      class="fixed inset-0 bg-black/70 flex items-center justify-center z-[9999]"
+      @click.self="closeModal"
+    >
         <div
+          ref="modal"
           class="relative bg-primary rounded-3xl w-[1200px] h-[680px] p-12 flex justify-center items-center z-50 shadow-xl overflow-y-auto outline-4 outline-secondary outline-dashed outline-offset-[-25px]"
           @click.stop
         >
@@ -38,7 +36,6 @@
                 </div>
               </div>
             </div>
-
             <div class="bg-tertiary w-[550px] h-[570px] p-12 flex flex-col gap-6 rounded-r-lg overflow-y-auto">
               <div>
                 <p class="font-playfair font-bold text-2xl">3. Pricing</p>
@@ -71,58 +68,45 @@
             </div>
           </div>
         </div>
-      </transition>
-
     </div>
-  </transition>
 </template>
 
 <script setup>
+import { ref, watch, nextTick } from "vue";
+import { popupEnter, popupLeave } from "~/utils/animations/popUpAnimation";
+
 const props = defineProps({
   open: Boolean
-})
+});
 
-const emit = defineEmits(["close"])
+const emit = defineEmits(["close"]);
 
-const close = () => emit("close")
+const modal = ref(null);
+const overlay = ref(null);
+
+const closeModal = () => {
+  if (!modal.value || !overlay.value) {
+    emit("close");
+    return;
+  }
+
+  popupLeave(modal.value, () => {
+    emit("close");
+    document.body.style.overflow = "";
+  });
+};
+
+watch(
+  () => props.open,
+  async (val) => {
+    if (!val) return;
+
+    await nextTick();
+    document.body.style.overflow = "hidden";
+
+    if (modal.value) {
+      popupEnter(modal.value);
+    }
+  }
+);
 </script>
-
-<style scoped>
-/* BACKDROP FADE */
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-.fade-enter-to,
-.fade-leave-from {
-  opacity: 1;
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-/* MODAL SLIDE-UP */
-.slide-enter-from {
-  transform: translateY(60px);
-  opacity: 0;
-}
-.slide-enter-to {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.slide-leave-from {
-  transform: translateY(0);
-  opacity: 1;
-}
-.slide-leave-to {
-  transform: translateY(60px);
-  opacity: 0;
-}
-
-.slide-enter-active,
-.slide-leave-active {
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-</style>

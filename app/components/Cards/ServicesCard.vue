@@ -20,10 +20,10 @@
         <button  
           @click="openServicesPopUp = true"
           class="bg-complimentary px-5 pb-10 pt-4 font-poppins font-bold text-secondary
-                relative z-10 transition-all duration-200 group-hover:-translate-y-5 hover:bg-primary"
+                relative z-10 transition-all duration-200 group-hover:-translate-y-5 hover:bg-primary flex"
         >
           <span ref="diamondEl" class="inline-block">
-            <Icon name="mdi:chevron-double-up" />
+            <Icon name="mdi:chevron-double-up" size="28"/>
           </span>
           Terms of Service
         </button>
@@ -164,7 +164,7 @@ onMounted(() => {
   cleanup = servicesCardAnimation(serviceRoot),
   gsap.to(diamondEl.value, {
     y: -4,
-    rotate: 6,
+    rotate: -6,
     duration: 1.2,
     repeat: -1,
     yoyo: true,

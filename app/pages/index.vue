@@ -17,20 +17,20 @@
             </a>
         </div>
         <div id="start" class="mx-14 relative z-10 start-section">
-            <div class="absolute top-16 right-14">
+            <div class="absolute top-10 right-14">
                 <InteractiveStar :src="star1"/>
             </div>
-            <div class="absolute bottom-36 right-[650px]">
+            <div class="absolute bottom-56 right-[650px]">
                 <InteractiveStar :src="star2" class="w-10"/>
             </div>
-            <div class="flex items-start">
-                <img src="assets/images/Main Image.png" alt="" class="w-[77vh]">
-                <div class="flex flex-col items-end gap-10 py-44 px-7">
-                    <p class="font-playfair text-8xl font-black text-primary">Hii, It's <span class="underline-gradient-dotted">Luxqya!</span></p>
-                    <p class="font-poppins text-end text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-                    <a href="https://vgen.co/luxqya_ra" class="border-4 border-primary hover:bg-primary rounded-lg px-7 py-3 font-poppins font-black text-primary hover:text-secondary transition-all duration-300">
-                        Commission Me!
-                    </a>
+            <div class="flex items-start justify-between">
+                <img src="assets/images/Main Image.png" alt="" class="w-[85vh]">
+                <div class="flex flex-col items-end gap-10 py-32 px-10">
+                    <div>
+                        <p class="font-playfair text-8xl font-black text-primary text-end">Hii It's <span class=" text-complimentary underline"> Luxqya!</span> Your Beloved </p>
+                        <p class="font-playfair text-8xl font-black text-primary text-end hero-text">3D-Modeller</p>
+                    </div>
+                    <ButtonsCommissionButton />
                 </div>
             </div>
         </div>
@@ -138,6 +138,7 @@ import { galleryAnimation } from "~/utils/animations/galleryAnimation";
 import { faqAnimation } from "~/utils/animations/faqAnimation";
 import { footerAnimation } from "~/utils/animations/footerAnimation"
 import { faqs } from "~/utils/faq"
+import { textSwapAnimation } from "~/utils/animations/startAnimation"
 
 onMounted(() => {
   aboutPopupAnimation();
@@ -148,6 +149,18 @@ onMounted(() => {
   galleryAnimation();
   faqAnimation();
   footerAnimation()
+  textSwapAnimation(".hero-text", [
+      "Digital Artist",
+      "Chara' Designer",
+      "Painter",
+      "3D-Modeller",
+  ], {
+    duration: 1,
+    delay: 2,
+    loop: true,
+    scrollTrigger: true,
+    trigger: ".hero-section",
+  });
 });
 </script>
 
