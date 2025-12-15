@@ -25,6 +25,7 @@
             </div>
             <div class="flex items-start justify-between">
                 <StartImage class="ml-2" />
+                <StartIcon class="absolute top-28 right-20" />
                 <div class="flex flex-col items-end gap-10 py-32 px-10">
                     <div>
                         <p class="font-playfair text-8xl font-black text-primary text-end">Hii It's <span class=" text-complimentary underline"> Luxqya!</span> Your Beloved </p>

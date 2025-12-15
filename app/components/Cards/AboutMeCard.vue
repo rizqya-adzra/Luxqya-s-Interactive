@@ -10,21 +10,20 @@
       <section v-if="activeSection === 'about'" key="about" class="space-y-5 text-start">
         <div class="flex space-x-24 mb-10">
           <div class="space-y-2 font-poppins font-bold text-xl text-start">
-            <p>Name</p>
-            <p>You can call me</p>
-            <p>Birthday</p>
-            <p>Languages</p>
+            <p>{{ t('name') }}</p>
+            <p>{{ t('call') }}</p>
+            <p>{{ t('birthday') }}</p>
+            <p>{{ t('language') }}</p>
           </div>
           <div class="space-y-2 font-poppins font-bold text-start text-xl text-primary">
             <p>: Luxqya Ra</p>
             <p>: Lux / Qya</p>
             <p>: 31st July</p>
-            <p>: Indonesian, English, a bit of German</p>
+            <p>: {{ t('language1') }}</p>
           </div>
         </div>
         <p class="font-poppins text-lg text-start w-[90%]">
-          I’m a student who loves tech, art, games, and storytelling.  
-          I'm passionate about developing creative projects and improving my skills every day.
+          {{ t('get_to_know_me') }}
         </p>
       </section>
       <section v-if="activeSection === 'likeDislike'" key="like" class="space-y-5 mt-10">
@@ -32,29 +31,25 @@
           <div class="flex flex-col gap-3">
             <p class="font-poppins font-black text-xl text-start">I LIKE</p>
             <p class="font-poppins text-lg text-start">
-              Art, coding, open worlds, music, and peaceful rainy vibes.  
-              I love exploring new ideas and creating things that inspire others.
+              {{ t('like') }}
             </p>
           </div>
           <div class="flex flex-col gap-3">
             <p class="font-poppins font-black text-primary text-xl text-start">I DON’T LIKE</p>
             <p class="font-poppins text-lg text-start">
-              Loud chaotic places, unnecessary drama, and being rushed.  
-              I prefer calm and meaningful moments.
+              {{ t('dislike') }}
             </p>
           </div>
         </div>
       </section>
       <section v-if="activeSection === 'hobby'" key="hobby" class="space-y-5">
-        <p class="font-poppins font-black text-xl text-start mt-10">I’d like to spend my time doing. . .</p>
+        <p class="font-poppins font-black text-xl text-start mt-10">{{ t('hobby') }}</p>
         <p class="font-poppins text-lg w-[90%] text-start">
-          I love drawing, creating digital art, playing guitar, working out,  
-          and exploring programming projects.  
-          I enjoy anything that lets me improve and express myself.
+          {{ t('hobby1') }}
         </p>
       </section>
       <section v-if="activeSection === 'games'" key="games" class="space-y-5">
-        <h2 class="text-xl font-black font-poppins text-start">Current Favorite Games:</h2>
+        <h2 class="text-xl font-black font-poppins text-start">{{ t('games') }}</h2>
         <div class="flex gap-4 items-start gallery">
           <img src="assets/images/rdr2.jpg" class="w-44 rounded transition hover:-translate-y-3 hover:scale-105 hover:shadow-lg">
           <img src="assets/images/clair_obscur.jpg" class="w-44 rounded transition hover:-translate-y-3 hover:scale-105 hover:shadow-lg">
@@ -81,8 +76,10 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useLanguage } from '@/composables/useLanguage'
 
 const activeSection = ref('about')
+const { t } = useLanguage()
 </script>
 
 <style>

@@ -12,40 +12,42 @@
         >
           <div class="flex">
             <div class="bg-secondary w-[550px] h-[570px] p-10 flex flex-col gap-6 rounded-l-lg overflow-y-auto">
-              <ButtonsLanguageSwitchButton/>
               <div>
-                <p class="font-playfair font-bold text-2xl">1. Copyrights</p>
+                <ButtonsLanguageSwitchButton/>
+              </div>
+              <div>
+                <p class="font-playfair font-bold text-2xl">{{ t('copyrights').header }}</p>
                 <div class="font-poppins mt-2">
                   <ul class="list-disc pl-5 space-y-1 text-sm">
-                    <li>Using my artworks for AI or NFTs are PROHIBITED.</li>
-                    <li>I have my own copyrights for my artworks, including advertising, portfolios, printing etc.</li>
-                    <li>Credit me if you want to share my artworks publicly.</li>
+                    <li>{{ t('copyrights').one }}</li>
+                    <li>{{ t('copyrights').two }}</li>
+                    <li>{{ t('copyrights').three }}</li>
                   </ul>
                 </div>
               </div>
               <div>
-                <p class="font-playfair font-bold text-2xl">2. Payment</p>
+                <p class="font-playfair font-bold text-2xl">{{ t('payment').header }}</p>
                 <div class="font-poppins mt-2">
                   <ul class="list-disc pl-5 space-y-1 text-sm">
-                    <li>I will only proceed with the workflow after receiving an upfront payment of 50% of the total price. However, if you request me through VGEN, a full upfront payment is required.</li>
-                    <li>After the final draft (sketch/lineart) is approved by the client, I will only continue the process once the full payment has been completed.</li>
-                    <li>Payment method for local (Indonesia): Gopay.</li>
-                    <li>Payment method for international buyers: VGEN / Ko-fi only.</li>
-                    <li>No refunds allowed. Please spend carefully.</li>
+                    <li>{{ t('payment').one }}</li>
+                    <li>{{ t('payment').two }}</li>
+                    <li>{{ t('payment').three }}</li>
+                    <li>{{ t('payment').four }}</li>
+                    <li>{{ t('payment').five }}</li>
                   </ul>
                 </div>
               </div>
             </div>
             <div class="bg-tertiary w-[550px] h-[570px] p-12 flex flex-col gap-6 rounded-r-lg overflow-y-auto">
               <div>
-                <p class="font-playfair font-bold text-2xl">3. Pricing</p>
+                <p class="font-playfair font-bold text-2xl">{{ t('pricing').header }}</p>
                 <div class="font-poppins mt-2">
                   <ul class="list-disc pl-5 space-y-1 text-sm">
-                    <li>The price listed are for personal use only.</li>
-                    <li>Commercial use is 2x the total price.</li>
-                    <li>Merchandise or Fan-merch or Profit use is 3x the total price.</li>
-                    <li>NDA (Non-Disclosure Agreement) fees are 2x the total price.</li>
-                    <li>By purchasing a commission, the client agrees to the possibility of additional fees being added by the artist</li>
+                    <li>{{ t('pricing').one }}</li>
+                    <li>{{ t('pricing').two }}</li>
+                    <li>{{ t('pricing').three }}</li>
+                    <li>{{ t('pricing').four }}</li>
+                    <li>{{ t('pricing').five }}</li>
                   </ul>
                 </div>
               </div>
@@ -74,6 +76,9 @@
 <script setup>
 import { ref, watch, nextTick } from "vue";
 import { popupEnter, popupLeave } from "~/utils/animations/popUpAnimation";
+import { useLanguage } from '@/composables/useLanguage'
+
+const { t } = useLanguage()
 
 const props = defineProps({
   open: Boolean

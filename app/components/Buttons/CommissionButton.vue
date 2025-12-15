@@ -4,7 +4,7 @@
     href="https://vgen.co/luxqya_ra"
     class="relative overflow-hidden
            border-4 border-complimentary
-           rounded-lg px-7 py-2
+           rounded-lg px-7
            font-poppins font-black
            text-complimentary
            flex items-center gap-5"
@@ -14,7 +14,7 @@
       class="absolute inset-0 bg-complimentary -z-10"
     />
 
-    <span ref="text" class="relative z-10 text-lg">
+    <span ref="text" class="relative z-10 text-xl">
       Commission Me!
     </span>
 
@@ -26,7 +26,6 @@
     </span>
   </a>
 </template>
-
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
@@ -70,7 +69,7 @@ hoverIn = () => {
       gsap.set(iconWrap.value, { x: -1000 })
       gsap.to(iconWrap.value, {
         color: '#FFEEDE',
-        x: -165,
+        x: -185,
         duration: 0.2,
         ease: 'power2.out'
       })
