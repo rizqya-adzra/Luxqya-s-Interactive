@@ -25,7 +25,7 @@ export const reviews = [
     id: 3,
     name: "Shiromochito",
     order: "Fully Rendered!",
-    type: " Half Body with Background",
+    type: " Half Body",
     stars: 5,
     review:
       "WAAAAAAAA thank u so much kakk  i love it so muchhh huhu",

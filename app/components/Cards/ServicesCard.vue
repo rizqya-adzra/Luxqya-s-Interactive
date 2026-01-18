@@ -1,13 +1,13 @@
 <template>
   <div ref="serviceRoot" class="service-section relative w-full px-4 lg:px-0">
     
-    <div class="flex justify-between items-center lg:hidden w-full md:w-auto max-w-[600px] mx-auto mb-12 md:mb-0 absolute top-[-62px] left-10 md:top-[-60px] md:left-24 md:z-0">
-       <div class="bg-gradient-to-r from-[#d64a58] to-[#148e9c] p-4 md:px-10 md:py-4 shadow-md relative z-10">
-          <h1 class="text-white font-serif text-2xl md:text-3xl text-left tracking-[0.2em] font-bold">SERVICES</h1>
+    <div class="flex justify-between items-center lg:hidden w-full md:w-auto max-w-[600px] mx-auto mb-12 md:mb-0 absolute top-[-62px] left-10 md:top-[-60px] md:left-24 md:z-0 ">
+       <div class="bg-gradient-to-r from-[#d64a58] to-[#148e9c] p-4 md:px-10 md:py-4 shadow-md relative z-10 service-anim-item1">
+          <h1 class="text-white font-serif text-2xl md:text-3xl text-left tracking-[0.2em] font-bold ">SERVICES</h1>
        </div>
        
-       <div class="md:hidden absolute top-[-45px] right-20">
-          <div class="flex flex-col items-center bg-complimentary rounded-t-xl px-8 py-3 font-poppins font-bold text-secondary shadow-md text-center md:text-start">
+       <div class="md:hidden absolute top-[-43px] right-20">
+          <div class="service-anim-item1 flex flex-col items-center bg-complimentary w-20 rounded-t-xl px-8 py-3 font-poppins font-bold text-secondary shadow-md text-center md:text-start">
             <Icon name="mdi:chevron-down" size="32" />
             CMS <br> Open
           </div>
@@ -15,7 +15,7 @@
     </div>
 
     <div class="hidden md:block lg:hidden absolute top-[-45px] md:right-24 lg:right-10 z-0">
-        <div class="bg-complimentary rounded-t-xl px-8 py-3 font-poppins font-bold text-secondary shadow-md">
+        <div class="service-anim-item1 bg-complimentary rounded-t-xl px-8 py-3 font-poppins font-bold text-secondary shadow-md">
           Commission Open
         </div>
     </div>
@@ -37,7 +37,7 @@
     </div>
 
     <div
-      class="w-full max-w-[600px] md:max-w-[770px] lg:max-w-none lg:w-[1200px] h-auto lg:h-[580px] mx-auto bg-[#FFFAF0] rounded-xl p-6 md:p-8 lg:p-10 flex flex-col md:flex-row lg:flex-row justify-center items-start relative z-10 lg:ml-48 shadow-[4px_0_6px_rgba(0,0,0,0.2)] service-anim-item1 gap-8 md:gap-4 lg:gap-0 md:mt-16 lg:mt-0 bg-cover bg-no-repeat bg-center 
+      class="w-full max-w-[600px] md:max-w-[770px] lg:max-w-none lg:w-[1200px] h-auto lg:h-[580px] mx-auto bg-[#FFFAF0] rounded-xl p-6 md:p-8 lg:p-10 flex flex-col md:flex-row lg:flex-row justify-center items-start relative z-10 lg:ml-48 shadow-none md:shadow-[4px_0_6px_rgba(0,0,0,0.2)] service-anim-item1 gap-8 md:gap-4 lg:gap-0 md:mt-16 lg:mt-0 bg-cover bg-no-repeat bg-center 
       bg-[image:var(--bg-mobile)] md:bg-[image:var(--bg-desktop)]"
       
       :style="{
@@ -64,31 +64,31 @@
               <li class="flex justify-between items-end w-full">
                 <span class="font-semibold whitespace-nowrap">Headshot</span>
                 <span class="hidden lg:block mx-1 tracking-widest text-gray-400 overflow-hidden truncate">.....................................</span>
-                <span class="block lg:hidden mx-1 tracking-widest text-gray-400 overflow-hidden truncate">..............</span>
+                <span class="hidden md:block lg:hidden mx-1 tracking-widest text-gray-400 overflow-hidden truncate">..............</span>
                 <span class="font-bold text-complimentary whitespace-nowrap">Rp100K | 30$</span>
               </li>
               <li class="flex justify-between items-end w-full">
                 <span class="font-semibold whitespace-nowrap">Bust Up</span>
                 <span class="hidden lg:block mx-1 tracking-widest text-gray-400 overflow-hidden truncate">.....................................</span>
-                <span class="block lg:hidden mx-1 tracking-widest text-gray-400 overflow-hidden truncate">..............</span>
+                <span class="hidden md:block lg:hidden mx-1 tracking-widest text-gray-400 overflow-hidden truncate">..............</span>
                 <span class="font-bold text-complimentary whitespace-nowrap">Rp140K | 45$</span>
               </li>
               <li class="flex justify-between items-end w-full">
                 <span class="font-semibold whitespace-nowrap">Half Body</span>
                 <span class="hidden lg:block mx-1 tracking-widest text-gray-400 overflow-hidden truncate">.....................................</span>
-                <span class="block lg:hidden mx-1 tracking-widest text-gray-400 overflow-hidden truncate">..............</span>
+                <span class="hidden md:block lg:hidden mx-1 tracking-widest text-gray-400 overflow-hidden truncate">..............</span>
                 <span class="font-bold text-complimentary whitespace-nowrap">Rp200K | 65$</span>
               </li>
               <li class="flex justify-between items-end w-full">
                 <span class="font-semibold whitespace-nowrap">Knee Up</span>
                 <span class="hidden lg:block mx-1 tracking-widest text-gray-400 overflow-hidden truncate">.....................................</span>
-                <span class="block lg:hidden mx-1 tracking-widest text-gray-400 overflow-hidden truncate">..............</span>
+                <span class="hidden md:block lg:hidden mx-1 tracking-widest text-gray-400 overflow-hidden truncate">..............</span>
                 <span class="font-bold text-complimentary whitespace-nowrap">Rp250K | 75$</span>
               </li>
               <li class="flex justify-between items-end w-full">
                 <span class="font-semibold whitespace-nowrap">Full Body</span>
                 <span class="hidden lg:block mx-1 tracking-widest text-gray-400 overflow-hidden truncate">.....................................</span>
-                <span class="block lg:hidden mx-1 tracking-widest text-gray-400 overflow-hidden truncate">..............</span>
+                <span class="hidden md:block lg:hidden mx-1 tracking-widest text-gray-400 overflow-hidden truncate">..............</span>
                 <span class="font-bold text-complimentary whitespace-nowrap">Rp300K | 90$</span>
               </li>
             </ul>
@@ -111,13 +111,13 @@
                 <li class="flex justify-between items-end w-full">
                   <span class="font-semibold whitespace-nowrap">Headshot</span>
                   <span class="hidden lg:block mx-1 tracking-widest text-gray-400 overflow-hidden truncate">.....................................</span>
-                  <span class="block lg:hidden mx-1 tracking-widest text-gray-400 overflow-hidden truncate">..............</span>
+                  <span class="hidden md:block lg:hidden mx-1 tracking-widest text-gray-400 overflow-hidden truncate">..............</span>
                   <span class="font-bold text-complimentary whitespace-nowrap">Rp65K | 17$</span>
                 </li>
                 <li class="flex justify-between items-end w-full">
                   <span class="font-semibold whitespace-nowrap">Full Body</span>
                   <span class="hidden lg:block mx-1 tracking-widest text-gray-400 overflow-hidden truncate">.....................................</span>
-                  <span class="block lg:hidden mx-1 tracking-widest text-gray-400 overflow-hidden truncate">..............</span>
+                  <span class="hidden md:block lg:hidden mx-1 tracking-widest text-gray-400 overflow-hidden truncate">..............</span>
                   <span class="font-bold text-complimentary whitespace-nowrap">Rp150K | 32$</span>
                 </li>
               </ul>
@@ -125,35 +125,42 @@
           </div>
         </div>
 
-        <div class="flex-2 grid gap-4 lg:gap-7 w-full md:w-[30%] lg:w-auto lg:-mr-3">
+        <div class="flex-2 grid gap-4 lg:gap-7 w-full md:w-[30%] lg:w-auto lg:-mr-3 mx-auto">
+  
           <div class="flex flex-col justify-center items-center md:items-center lg:items-center relative h-64 md:h-56 lg:h-auto">
             <img
-            src="assets/images/char_sheet_sample.jpg"
-            class="w-64 md:w-52 lg:w-80 h-fit -rotate-3 lg:-rotate-6 border-4 mr-4 lg:border-8 shadow border-white z-10"
-            alt="sample"
+              src="assets/images/char_sheet_sample.jpg"
+              class="w-64 md:w-52 lg:w-80 h-fit -rotate-3 lg:-rotate-6 border-4 md:mr-4 lg:border-8 shadow border-white z-10"
+              alt="sample"
             />
             <img
-            src="assets/images/char_sheet2_sample.jpg"
-            class="w-64 md:w-52 lg:w-80 h-fit shadow -mt-8 md:-mt-12 lg:-mt-5 ml-7 lg:mx-6 border-4 lg:border-8 border-white z-20"
-            alt="sample"
+              src="assets/images/char_sheet2_sample.jpg"
+              class="w-64 md:w-52 lg:w-80 h-fit shadow -mt-8 md:-mt-12 lg:-mt-5 md:ml-7 lg:mx-6 border-4 lg:border-8 border-white z-20"
+              alt="sample"
             />
           </div>
+
           <div class="font-poppins mb-5 md:mb-0 md:mt-2 lg:mt-0">
-            <h2 class="font-bold text-2xl md:text-xl lg:text-3xl text-primary mb-2 lg:mb-4 text-center">Character Sheet</h2>
+            <h2 class="font-bold text-2xl md:text-xl lg:text-3xl text-primary mb-2 lg:mb-4 text-center">
+              Character Sheet
+            </h2>
+            
             <ul class="space-y-2 lg:space-y-3 font-medium text-sm md:text-[15px] lg:text-base">
-              <li class="flex px-16 md:px-0 md:gap-2 lg:gap-0 justify-between items-end w-full">
+              <li class="flex px-6 md:px-0 md:gap-2 lg:gap-0 justify-between items-end w-full">
                 <span class="font-semibold whitespace-nowrap">Flat Colored</span>
                 <span class="hidden lg:block mx-1 tracking-widest text-gray-400 overflow-hidden truncate">.....................................</span>
                 <span class="font-bold text-complimentary whitespace-nowrap">Rp600K | 99$</span>
               </li>
-              <li class="flex px-16 md:px-0 md:gap-2 lg:gap-0 justify-between items-end w-full">
+              
+              <li class="flex px-6 md:px-0 md:gap-2 lg:gap-0 justify-between items-end w-full">
                 <span class="font-semibold whitespace-nowrap">Fully Rendered</span>
                 <span class="hidden lg:block mx-1 tracking-widest text-gray-400 overflow-hidden truncate">.....................................</span>
-              <span class="font-bold text-complimentary whitespace-nowrap">Rp1.200K | 179$</span>
-            </li>
-          </ul>
+                <span class="font-bold text-complimentary whitespace-nowrap">Rp1.200K | 179$</span>
+              </li>
+            </ul>
+          </div>
+
         </div>
-      </div>  
       
     </div>
 
@@ -172,7 +179,7 @@
   </div>
 
   <div class="mt-8 lg:mt-5 flex justify-center">
-    <button @click="openServicesPopUp = true" class="flex gap-3 py-3 px-16 lg:px-20 text-xl lg:text-2xl font-bold font-poppins bg-primary hover:bg-complimentary text-secondary rounded-md transition-all duration-300 shadow-lg"> 
+    <button @click="openServicesPopUp = true" class="service-anim-button flex gap-3 py-3 px-16 lg:px-20 text-xl lg:text-2xl font-bold font-poppins bg-primary hover:bg-complimentary text-secondary rounded-md transition-all duration-300 shadow-lg"> 
       <span class="inline-block" ref="diamondEl">◆</span> read ToS
     </button>
   </div>

@@ -38,42 +38,66 @@
                 </div>
             </div>
         </div>
-        <img src="assets/images/bg-1.png" alt="" class="absolute left-0 max-w-none w-[300%] md:w-[170%] lg:w-full -mt-32 lg:-mt-56 z-0">
-        <div class="relative z-10 pt-[120px] md:pt-[180px] lg:pt-[210px] text-center about-section">
-            <div class="absolute inset-0 pointer-events-none scale-[0.6] md:scale-[0.8] lg:scale-100 origin-top">
-                <img src="assets/images/stars/white.png" alt="" class="w-12 hidden md:block">
+        <section class="relative w-full text-center">
+            <div class="absolute top-28 md:top-0 w-full h-full z-0 pointer-events-none">
+    
+                <picture>
+                    <source 
+                        media="(max-width: 767px)" 
+                        srcset="assets/images/bg-1-mobile.png"
+                    >
+                    
+                    <img 
+                        src="assets/images/bg-1.png" 
+                        alt="" 
+                        class="absolute top-0 left-1/2 -translate-x-1/2 max-w-none 
+                            w-full md:w-[170%] lg:w-full 
+                            -mt-32 lg:-mt-56"
+                    >
+                </picture>
+
             </div>
-            <div id="about"></div>
-            <div class="absolute top-64 right-[200px] about-anim-item">
-                <InteractiveStar :src="star1" class="w-12 hidden md:block"/>
+            <div class="relative z-10 pt-[110px] md:pt-[180px] lg:pt-[210px] about-section">
+                
+                <div class="absolute inset-0 pointer-events-none scale-[0.6] md:scale-[0.8] lg:scale-100 origin-top">
+                    <img src="assets/images/stars/white.png" alt="" class="w-12 hidden md:block">
+                </div>
+                
+                <div id="about"></div>
+                
+                <div class="absolute top-64 right-[200px] about-anim-item">
+                    <InteractiveStar :src="star1" class="w-12 hidden md:block"/>
+                </div>
+                <div class="absolute top-54 left-[200px] about-anim-item">
+                    <InteractiveStar :src="star_circledwhiteblue" class="w-20 hidden md:block"/>
+                </div>
+                <div class="absolute -bottom-24 left-[55px] about-anim-item z-50">
+                    <img src="assets/images/stars/twins.png" alt="" class="w-48 hidden md:block">
+                </div>
+                <div class="absolute -bottom-56 right-[200px] about-anim-star2">
+                    <InteractiveStar :src="star_circledwhiteblue" class="w-20 hidden md:block"/>
+                </div>
+
+                <p class="hidden md:block font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-[#FFFAF0] mb-10 about-anim-text">
+                    About Me
+                </p>
+                <div class="about-anim-item px-2 lg:px-0">
+                    <CardsAboutMeCard />
+                </div>
+
             </div>
-            <div class="absolute top-54 left-[200px] about-anim-item">
-                <InteractiveStar :src="star_circledwhiteblue" class="w-20 hidden md:block"/>
-            </div>
-            <div class="absolute -bottom-24 left-[55px] about-anim-item z-50">
-                <img src="assets/images/stars/twins.png" alt="" class="w-48 hidden md:block">
-            </div>
-            <div class="absolute -bottom-56 right-[200px] about-anim-star2">
-                <InteractiveStar :src="star_circledwhiteblue" class="w-20 hidden md:block"/>
-            </div>
-            <p class="font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-[#FFFAF0] mb-10 about-anim-text">
-                About Me
-            </p>
-            <div class="about-anim-item px-2 lg:px-0">
-                <CardsAboutMeCard />
-            </div>
-        </div>
-        <div id="service" class="relative mt-[500px] service-section">
+        </section>
+        <section id="service" class="relative mt-56 md:mt-96 lg:mt-[500px] service-section">
             <div class="absolute -bottom-14 md:right-[20px] lg:-bottom-10 right-[80px] z-20 service-anim-star">
                 <HoverStar :src="gif_circledprimary" size="w-44" class="hidden md:block"/>
             </div>
             <CardsServicesCard/>
-        </div>
+        </section>
         <div id="testimony" class="relative testimony-section">
             <div class="absolute top-44 left-44 testimony-anim-star">
                 <InteractiveStar :src="star1" class="w-16 hidden md:block"/>
             </div>
-            <p class="mt-48 mb-6 font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-primary text-center testimony-anim-text">What They Say?</p>
+            <p class="mt-32 font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-primary text-center testimony-anim-text">What They Say?</p>
             <div class="testimony-anim-item">
                 <CardsTestimonyCard/>
             </div>
@@ -84,7 +108,7 @@
             <div class="h-4 w-[75%] rounded-full bg-gradient-to-r from-complimentary to-primary line-anim-item3"></div>
         </div>
         <div id="gallery" class="relative gallery-section">
-            <p class="mt-32 md:mb-10 font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-primary text-center gallery-anim-text">Gallery</p>
+            <p class="mt-32 md:mb-1 lg:mb-10 font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-primary text-center gallery-anim-text">Gallery</p>
             <div class="absolute top-0 right-[550px]">
                 <img src="assets/images/stars/primary.png" alt="" class="w-12">
             </div>
@@ -105,7 +129,7 @@
             <div class="absolute -top-16 left-[150px] faq-anim-star">
                 <HoverStar :src="gif_circledsecondary" size="w-44 hidden lg:block" />
             </div>
-            <p class="mt-32 mb-10 md:mb-20 font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-primary text-center faq-anim-text">Frequently Asked <br> Questions.</p>
+            <p class="mt-24 lg:mt-36 mb-10 md:mb-20 font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-primary text-center faq-anim-text">Frequently Asked <br> Questions.</p>
             <div class="faq-anim-item">
                 <CardsFAQCard
                     v-for="(item, i) in faqs"
@@ -155,7 +179,7 @@ onMounted(() => {
   footerAnimation()
   textSwapAnimation(".hero-text", [
       "Digital Artist",
-      "Char Designer",
+      "Designer",
       "Vtuber Artist",
       "3D-Modeller",
   ], {

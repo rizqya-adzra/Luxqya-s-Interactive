@@ -4,7 +4,7 @@
     href="https://vgen.co/luxqya_ra"
     class="relative overflow-hidden
            border-4 border-complimentary
-           rounded-lg px-7 py-3
+           rounded-lg px-7 md:py-3
            font-poppins font-black
            text-complimentary
            flex items-center gap-5"

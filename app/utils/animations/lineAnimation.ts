@@ -9,11 +9,10 @@ export function lineAnimation() {
       trigger: ".line-section",
       start: "top bottom",
       end: () => window.innerWidth < 768 ? "bottom top+=800" : "bottom top+=400",
-      scrub: 2,
     },
     clipPath: "inset(0 100% 0 0)",   
     transformOrigin: "right center",   
-    duration: 10,
+    duration: 1.5,
     ease: "power1.out",
   });
 
@@ -22,11 +21,10 @@ export function lineAnimation() {
       trigger: ".line-section",
       start: "top bottom",
       end: () => window.innerWidth < 768 ? "bottom top+=800" : "bottom top+=400",
-      scrub: 5,
     },
     clipPath: "inset(0 100% 0 0)",   
     transformOrigin: "right center",   
-    duration: 10,
+    duration: 1.5,
     ease: "power2.out",
   });
   
@@ -35,11 +33,10 @@ export function lineAnimation() {
       trigger: ".line-section",
       start: "top bottom",
       end: () => window.innerWidth < 768 ? "bottom top+=800" : "bottom top+=400",
-      scrub: 3,
     },
     clipPath: "inset(0 100% 0 0)",   
     transformOrigin: "right center",   
-    duration: 10,
+    duration: 1.5,
     ease: "power1.out",
   });
 }

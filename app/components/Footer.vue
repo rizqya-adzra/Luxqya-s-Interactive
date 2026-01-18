@@ -5,7 +5,7 @@
       <div class="absolute md:top-16 md:left-16 lg:top-24 lg:left-20 md:w-[730px] md:h-[800px] lg:w-[1100px] lg:h-[600px] bg-[#FFFAF0] rounded-xl -z-20 footer-anim-star hidden md:block"></div>
 
       <div
-        class="bg-[#FFFAF0] w-full max-w-[700px] md:max-w-[730px] lg:max-w-[1100px] lg:h-[600px] mt-10 p-6 lg:p-14 flex flex-col justify-center z-64 gap-10 rounded-xl shadow-[4px_4px_3px_rgba(0,0,0,0.2)] footer-anim-item"
+        class="bg-[#FFFAF0] w-full max-w-[700px] md:max-w-[730px] lg:max-w-[1100px] lg:h-[600px] mt-10 p-6 lg:p-14 flex flex-col justify-center z-64 gap-10 rounded-xl shadow-none md:shadow-[4px_4px_3px_rgba(0,0,0,0.2)] footer-anim-item"
         :style="{
           backgroundImage: `url(${bg})`,
           backgroundSize: 'cover',

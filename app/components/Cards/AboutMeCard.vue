@@ -7,7 +7,7 @@
            mx-auto
            rounded-2xl bg-[#FFFAF0]
            justify-between
-           overflow-hidden shadow-lg"> <div class="flex flex-col gap-8
+           overflow-hidden"> <div class="flex flex-col gap-8
            px-7 lg:px-9
            py-9 lg:py-5
            text-black
@@ -84,7 +84,9 @@
         lg:px-7 lg:py-5 lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none 
         lg:border-b-0 lg:border-l-[4px]
     ">
-      <ButtonsAboutMeSwitchButton buttonName="Get to know me!" @click="activeSection = 'about'"
+      <ButtonsAboutMeSwitchButton class="hidden md:block" buttonName="Get to know me!" @click="activeSection = 'about'"
+        :isActive="activeSection === 'about'" />
+      <ButtonsAboutMeSwitchButton class="block md:hidden" buttonName="About Me!" @click="activeSection = 'about'"
         :isActive="activeSection === 'about'" />
       <ButtonsAboutMeSwitchButton buttonName="Like & Dislike" @click="activeSection = 'likeDislike'"
         :isActive="activeSection === 'likeDislike'" />
