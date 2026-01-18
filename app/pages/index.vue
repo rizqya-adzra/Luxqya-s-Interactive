@@ -1,7 +1,8 @@
 <template>
     <div class="relative">
         <Header />
-        <div class="sticky-navbar fixed top-4 left-1/2 -translate-x-1/2 w-[1300px] h-[80px] mx-auto z-50 rounded-full bg-gray-900/90 backdrop-blur-md text-secondary flex items-center justify-between px-16 py-2">
+        <HeaderMobile />
+        <div class="hidden lg:flex sticky-navbar fixed top-3 left-1/2 -translate-x-1/2 w-[1300px] h-[70px] mx-auto z-50 rounded-full bg-gray-900/40 backdrop-blur-lg text-secondary items-center justify-between px-16 py-2">
             <button class="font-playfair font-black text-2xl" @click="navbarScroll('start')">LUXQYA</button>
             <div class="flex gap-5">
                 <ButtonsNav1Button class="text-secondary" buttonName="About Me" @click="navbarScroll('about')"/>
@@ -16,96 +17,95 @@
                 Work Queue
             </a>
         </div>
-        <div id="start" class="mx-14 relative z-10 start-section">
-            <div class="absolute top-10 right-14">
-                <InteractiveStar :src="star1"/>
+        <div id="start" class="mx-4 sm:mx-8 lg:mx-14 relative z-10 start-section">
+            <div class="hidden lg:block absolute top-10 right-14">
+                <InteractiveStar :src="star1" class="hidden md:block" />
             </div>
-            <div class="absolute bottom-56 right-[650px]">
-                <InteractiveStar :src="star2" class="w-5"/>
+            <div class="hidden lg:block absolute bottom-64 right-[650px]">
+                <InteractiveStar :src="star2" class="w-10 hidden md:block" />
             </div>
-            <div class="flex items-start justify-between">
-                <StartImage class="ml-2" />
-                <StartIcon class="absolute top-28 right-20" />
-                <div class="flex flex-col items-end gap-10 py-32 px-10">
-                    <div>
-                        <p class="font-playfair text-8xl font-black text-primary text-end">Hii It's <span class=" text-complimentary underline"> Luxqya!</span> Your Beloved </p>
-                        <p class="font-playfair text-8xl font-black text-primary text-end hero-text">3D-Modeller</p>
+            <div class="flex flex-col-reverse lg:flex-row items-center lg:items-start justify-between">
+                <StartImage class="mb-10 lg:mb-0 lg:ml-2" />
+                <StartIcon class="hidden lg:block absolute top-28 right-20" />
+                <div class="flex flex-col items-center lg:items-end gap-8 lg:gap-10 pt-20 pb-7 lg:py-32 px-4 sm:px-6 lg:px-7">
+                    <div class="text-center lg:text-end">
+                        <p class="font-playfair font-black text-primary text-5xl md:text-6xl lg:text-8xl"> Hii It's <span class="text-complimentary underline"> Luxqya! </span> Your Beloved </p>
+                        <div class="text-mask">
+                            <p class="font-playfair font-black text-primary hero-text text-5xl md:text-6xl lg:text-8xl">3D-Modeller</p>
+                        </div>
                     </div>
-                    <div class="flex gap-32 justify-between">
-                        <img :src="wip" alt="" class="w-20">
-                        <ButtonsCommissionButton />
-                    </div>
+                    <ButtonsCommissionButton />
                 </div>
             </div>
         </div>
-        <img src="assets/images/bg-1.png" alt="" class="absolute left-0 w-full -mt-56 z-0">
-        <div class="relative z-10 pt-[210px] text-center about-section">
-            <div class="absolute top-52 right-[510px] about-anim-star1">
-                <img src="assets/images/stars/white.png" alt="" class="w-12">
+        <img src="assets/images/bg-1.png" alt="" class="absolute left-0 max-w-none w-[300%] md:w-[170%] lg:w-full -mt-32 lg:-mt-56 z-0">
+        <div class="relative z-10 pt-[120px] md:pt-[180px] lg:pt-[210px] text-center about-section">
+            <div class="absolute inset-0 pointer-events-none scale-[0.6] md:scale-[0.8] lg:scale-100 origin-top">
+                <img src="assets/images/stars/white.png" alt="" class="w-12 hidden md:block">
             </div>
             <div id="about"></div>
-            <div class="absolute top-72 right-[200px] about-anim-item">
-                <InteractiveStar :src="star1" class="w-12"/>
+            <div class="absolute top-64 right-[200px] about-anim-item">
+                <InteractiveStar :src="star1" class="w-12 hidden md:block"/>
             </div>
-            <div class="absolute top-64 left-[200px] about-anim-item">
-                <InteractiveStar :src="star_circledwhiteblue" class="w-20"/>
+            <div class="absolute top-54 left-[200px] about-anim-item">
+                <InteractiveStar :src="star_circledwhiteblue" class="w-20 hidden md:block"/>
             </div>
             <div class="absolute -bottom-24 left-[55px] about-anim-item z-50">
-                <img src="assets/images/stars/twins.png" alt="" class="w-48">
+                <img src="assets/images/stars/twins.png" alt="" class="w-48 hidden md:block">
             </div>
             <div class="absolute -bottom-56 right-[200px] about-anim-star2">
-                <InteractiveStar :src="star_circledwhiteblue" class="w-20"/>
+                <InteractiveStar :src="star_circledwhiteblue" class="w-20 hidden md:block"/>
             </div>
-            <p class="font-playfair text-8xl font-black text-secondary mb-10 about-anim-text">
+            <p class="font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-[#FFFAF0] mb-10 about-anim-text">
                 About Me
             </p>
-            <div class="about-anim-item">
+            <div class="about-anim-item px-2 lg:px-0">
                 <CardsAboutMeCard />
             </div>
         </div>
         <div id="service" class="relative mt-[500px] service-section">
-            <div class="absolute -bottom-24 right-[80px] z-20 service-anim-star">
-                <HoverStar :src="gif_circledprimary" size="w-44"/>
+            <div class="absolute -bottom-14 md:right-[20px] lg:-bottom-10 right-[80px] z-20 service-anim-star">
+                <HoverStar :src="gif_circledprimary" size="w-44" class="hidden md:block"/>
             </div>
             <CardsServicesCard/>
         </div>
         <div id="testimony" class="relative testimony-section">
             <div class="absolute top-44 left-44 testimony-anim-star">
-                <InteractiveStar :src="star1" class="w-16"/>
+                <InteractiveStar :src="star1" class="w-16 hidden md:block"/>
             </div>
-            <p class="mt-48 mb-16 font-playfair text-8xl font-black text-primary text-center testimony-anim-text">What They Say?</p>
+            <p class="mt-48 mb-6 font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-primary text-center testimony-anim-text">What They Say?</p>
             <div class="testimony-anim-item">
                 <CardsTestimonyCard/>
             </div>
         </div>
-        <div class="space-y-4 px-28 mt-64 bg-secondary line-section">
+        <div class="space-y-4 px-5 md:px-28 mt-32 bg-secondary line-section">
             <div class="h-4 w-full rounded-full bg-gradient-to-r from-complimentary to-primary line-anim-item1"></div>
             <div class="h-4 w-[85%] rounded-full bg-gradient-to-r from-complimentary to-primary line-anim-item2"></div>
             <div class="h-4 w-[75%] rounded-full bg-gradient-to-r from-complimentary to-primary line-anim-item3"></div>
         </div>
         <div id="gallery" class="relative gallery-section">
-            <p class="mt-64 mb-10 font-playfair text-8xl font-black text-primary text-center gallery-anim-text">Gallery</p>
+            <p class="mt-32 md:mb-10 font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-primary text-center gallery-anim-text">Gallery</p>
             <div class="absolute top-0 right-[550px]">
                 <img src="assets/images/stars/primary.png" alt="" class="w-12">
             </div>
             <div class="absolute top-12 right-[200px]">
-                <InteractiveStar :src="star1" class="w-16"/>
+                <InteractiveStar :src="star1" class="w-16 hidden lg:block"/>
             </div>
             <div class="absolute top-12 left-[200px]">
-                <InteractiveStar :src="star_circledblue" class="w-20"/>
+                <InteractiveStar :src="star_circledblue" class="w-20 hidden lg:block"/>
             </div>
             <div class="gallery-anim-item">
                 <CardsGalleryCard/>
             </div>
         </div>
-        <div id="faq" class="mb-48 relative faq-section">
+        <div id="faq" class="mb-20 relative faq-section">
             <div class="absolute top-12 right-[200px]">
-                <InteractiveStar :src="star1" class="w-12"/>
+                <InteractiveStar :src="star1" class="w-12 hidden lg:block"/>
             </div>
             <div class="absolute -top-16 left-[150px] faq-anim-star">
-                <HoverStar :src="gif_circledsecondary" size="w-44" />
+                <HoverStar :src="gif_circledsecondary" size="w-44 hidden lg:block" />
             </div>
-            <p class="mt-48 mb-20 font-playfair text-8xl font-black text-primary text-center faq-anim-text">Frequently Asked <br> Questions.</p>
+            <p class="mt-32 mb-10 md:mb-20 font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-primary text-center faq-anim-text">Frequently Asked <br> Questions.</p>
             <div class="faq-anim-item">
                 <CardsFAQCard
                     v-for="(item, i) in faqs"
@@ -155,8 +155,8 @@ onMounted(() => {
   footerAnimation()
   textSwapAnimation(".hero-text", [
       "Digital Artist",
-      "Chara' Designer",
-      "Painter",
+      "Char Designer",
+      "Vtuber Artist",
       "3D-Modeller",
   ], {
     duration: 1,
@@ -167,3 +167,14 @@ onMounted(() => {
   });
 });
 </script>
+
+<style>
+.text-mask {
+  overflow: hidden;
+}
+
+.hero-text {
+  display: block;
+  line-height: 1.3;
+}
+</style>

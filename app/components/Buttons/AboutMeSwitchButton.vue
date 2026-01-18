@@ -19,7 +19,7 @@ const props = defineProps({
 })
 
 const baseClass = `
-  py-6 px-10 text-2xl font-bold font-poppins text-secondary
+  py-6 px-10 text-2xl py-5 text-lg md:py-6x md:text-xl font-bold font-poppins text-secondary
   rounded-md transition-all duration-300 outline outline-2
 `
 

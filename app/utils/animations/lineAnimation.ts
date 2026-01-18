@@ -8,7 +8,7 @@ export function lineAnimation() {
     scrollTrigger: {
       trigger: ".line-section",
       start: "top bottom",
-      end: "bottom top+=400",
+      end: () => window.innerWidth < 768 ? "bottom top+=800" : "bottom top+=400",
       scrub: 2,
     },
     clipPath: "inset(0 100% 0 0)",   
@@ -21,7 +21,7 @@ export function lineAnimation() {
     scrollTrigger: {
       trigger: ".line-section",
       start: "top bottom",
-      end: "bottom top+=400",
+      end: () => window.innerWidth < 768 ? "bottom top+=800" : "bottom top+=400",
       scrub: 5,
     },
     clipPath: "inset(0 100% 0 0)",   
@@ -34,7 +34,7 @@ export function lineAnimation() {
     scrollTrigger: {
       trigger: ".line-section",
       start: "top bottom",
-      end: "bottom top+=400",
+      end: () => window.innerWidth < 768 ? "bottom top+=800" : "bottom top+=400",
       scrub: 3,
     },
     clipPath: "inset(0 100% 0 0)",   

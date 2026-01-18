@@ -4,7 +4,7 @@
     href="https://vgen.co/luxqya_ra"
     class="relative overflow-hidden
            border-4 border-complimentary
-           rounded-lg px-7
+           rounded-lg px-7 py-3
            font-poppins font-black
            text-complimentary
            flex items-center gap-5"
@@ -14,7 +14,7 @@
       class="absolute inset-0 bg-complimentary -z-10"
     />
 
-    <span ref="text" class="relative z-10 text-xl">
+    <span ref="text" class="relative z-10 md:text-xl">
       Commission Me!
     </span>
 
@@ -50,28 +50,28 @@ hoverIn = () => {
 
   gsap.to(bg.value, {
     xPercent: 0,
-    duration: 0.35,
+    duration: 0.5,
     ease: 'power1.out'
   })
 
   gsap.to(text.value, {
     x: 64,
     color: '#FFEEDE',
-    duration: 0.35,
+    duration: 0.5,
     ease: 'power2.out'
   })
   
   gsap.to(iconWrap.value, {
     x: 80,
-    duration: 0.25,
-    ease: 'power2.out',
+    duration: 0.3,
+    ease: 'power1.out',
     onComplete: () => {
-      gsap.set(iconWrap.value, { x: -1000 })
+      gsap.set(iconWrap.value, { x: -200 })
       gsap.to(iconWrap.value, {
         color: '#FFEEDE',
         x: -185,
-        duration: 0.2,
-        ease: 'power2.out'
+        duration: 0.3,
+        ease: 'power1.out'
       })
     }
   })
@@ -99,7 +99,7 @@ hoverOut = () => {
     ease: 'power2.in',
     color: '#009DA8',
     onComplete: () => {
-      gsap.set(iconWrap.value, { x: 200 })
+      gsap.set(iconWrap.value, { x: 300 })
       gsap.to(iconWrap.value, {
         x: 0,
         duration: 0.2,

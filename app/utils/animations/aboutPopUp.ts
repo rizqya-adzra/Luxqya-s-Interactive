@@ -8,11 +8,11 @@ export function aboutPopupAnimation() {
     scrollTrigger: {
       trigger: ".about-section",
       start: "top bottom",
-      end: "bottom top+=620",
-      scrub: 1,
+      end: () => window.innerWidth < 768 ? "bottom top+=800" : "bottom top+=620",
+      scrub: 4,
     },
     y: 400,
-    scale: 0.9,
+    scale: 0.7,
     duration: 0.9,
     ease: "power1.out",
   });
@@ -21,8 +21,8 @@ export function aboutPopupAnimation() {
     scrollTrigger: {
       trigger: ".about-section",
       start: "top bottom",
-      end: "bottom top+=620",
-      scrub: 1,
+      end: () => window.innerWidth < 768 ? "bottom top+=800" : "bottom top+=620",
+      scrub: 4,
     },
     opacity: 0,
     y: -300,
@@ -37,8 +37,8 @@ export function aboutPopupAnimation() {
     scrollTrigger: {
       trigger: ".about-section",
       start: "top bottom",
-      end: "bottom top-=200",
-      scrub: 1,
+      end: () => window.innerWidth < 768 ? "bottom top+=800" : "bottom top-=200",
+      scrub: 4,
     },
     opacity: 0,
     y: -500,
@@ -52,8 +52,8 @@ export function aboutPopupAnimation() {
     scrollTrigger: {
       trigger: ".about-section",
       start: "top bottom",
-      end: "bottom top+=620",
-      scrub: 1,
+      end: () => window.innerWidth < 768 ? "bottom top+=800" : "bottom top+=620",
+      scrub: 4,
     },
     opacity: 0,
     y: 400,

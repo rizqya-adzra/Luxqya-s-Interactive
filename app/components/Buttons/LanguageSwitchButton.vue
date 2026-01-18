@@ -7,8 +7,8 @@
       class="cursor-pointer font-black transition-all duration-300 
         flex items-center justify-center rounded px-4 py-1"
       :class="currentLang === 'en'
-        ? 'bg-secondary text-black'
-        : 'text-secondary'"
+        ? 'bg-[#FFFAF0] text-black'
+        : 'text-[#FFFAF0]'"
     >
       ENG
     </div>
@@ -18,8 +18,8 @@
       class="cursor-pointer font-black transition-all duration-300 
         flex items-center justify-center rounded px-4 py-1"
       :class="currentLang === 'id'
-        ? 'bg-secondary text-black'
-        : 'text-secondary'"
+        ? 'bg-[#FFFAF0] text-black'
+        : 'text-[#FFFAF0]'"
     >
       IDN
     </div>

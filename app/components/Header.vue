@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-secondary/80 backdrop-blur-md flex items-center justify-between px-16 py-2">
+  <div class="bg-secondary/80 backdrop-blur-md hidden lg:flex items-center justify-between px-16 py-2">
     <button class="font-playfair font-black text-3xl" @click="navbarScroll('start')">LUXQYA</button>
 
     <div class="flex gap-5">

@@ -8,20 +8,8 @@ export function galleryAnimation() {
     scrollTrigger: {
       trigger: ".gallery-section",
       start: "top bottom",
-      end: "bottom top+=800",
-      scrub: 1,
-    },
-    y: -400,
-    scale: 0.9,
-    duration: 0.9,
-    ease: "power1.out",
-  });
-
-  gsap.from(".gallery-anim-item", {
-    scrollTrigger: {
-      trigger: ".gallery-section",
-      start: "top bottom",
-      end: "bottom top+=800",
+      end: () => window.innerWidth < 768 ? "bottom top+=800" : "bottom top+=400",
+      scrub: 2,
     },
     y: -400,
     scale: 0.9,
@@ -33,7 +21,7 @@ export function galleryAnimation() {
     scrollTrigger: {
       trigger: ".gallery-section",
       start: "top bottom",
-      end: "bottom top+=800",
+      end: () => window.innerWidth < 768 ? "bottom top+=800" : "bottom top+=800",
       scrub: 1,
     },
     opacity: 0,

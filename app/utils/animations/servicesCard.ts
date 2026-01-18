@@ -6,8 +6,8 @@ export function servicesCardAnimation(root) {
       scrollTrigger: {
         trigger: ".service-section",
         start: "top bottom",
-        end: "bottom top+=850",
-        scrub: 1,
+        end: () => window.innerWidth < 1000 ? "bottom top+=1300" : "bottom top+=850",
+        scrub: 4,
       },
       clipPath: "inset(0 200% 0 0)",   
       transformOrigin: "right center",   
@@ -20,8 +20,8 @@ export function servicesCardAnimation(root) {
       scrollTrigger: {
         trigger: ".service-section",
         start: "top bottom",
-        end: "bottom top+=850",
-        scrub: 1,
+        end: () => window.innerWidth < 1000 ? "bottom top+=1300" : "bottom top+=850",
+        scrub: 4,
       },
       clipPath: "inset(0 100% 0 0)",   
       transformOrigin: "right center",   
@@ -34,8 +34,8 @@ export function servicesCardAnimation(root) {
       scrollTrigger: {
         trigger: ".service-section",
         start: "top bottom",
-        end: "bottom top+=850",
-        scrub: 1,
+        end: () => window.innerWidth < 1000 ? "bottom top+=800" : "bottom top+=850",
+        scrub: 4,
       },
       clipPath: "inset(0 150% 0 0)",   
       transformOrigin: "right center",   
@@ -48,8 +48,8 @@ export function servicesCardAnimation(root) {
       scrollTrigger: {
         trigger: ".service-section",
         start: "top bottom",
-        end: "bottom top+=520",
-        scrub: 1,
+        end: () => window.innerWidth < 1000 ? "bottom top+=800" : "bottom top+=520",
+        scrub: 4,
       },
       opacity: 0,
       y: -1000,
@@ -64,10 +64,10 @@ export function servicesCardAnimation(root) {
       scrollTrigger: {
         trigger: ".service-section",
         start: "top bottom",
-        end: "bottom top+=620",
-        scrub: 1,
+        end: () => window.innerWidth < 1000 ? "bottom top+=800" : "bottom top+=620",
+        scrub: 4,
       },
-      skewX: 15,
+      x: 100,
       duration: 0.1,
       ease: "power1.out",
     });
@@ -76,8 +76,8 @@ export function servicesCardAnimation(root) {
       scrollTrigger: {
         trigger: ".service-section",
         start: "top bottom",
-        end: "bottom top+=800",
-        scrub: 1,
+        end: () => window.innerWidth < 1000 ? "bottom top+=800" : "bottom top+=800",
+        scrub: 2,
       },
       opacity: 0,
       y: 500,

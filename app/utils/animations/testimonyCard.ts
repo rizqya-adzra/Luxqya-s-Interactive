@@ -8,8 +8,8 @@ export function testimonyCardAnimation() {
     scrollTrigger: {
       trigger: ".testimony-section",
       start: "top bottom",
-      end: "bottom top+=500",
-      scrub: 1,
+      end: () => window.innerWidth < 768 ? "bottom top+=800" : "bottom top+=500",
+      scrub: 4,
     },
     opacity: 0,
     y: -60,
@@ -23,8 +23,8 @@ export function testimonyCardAnimation() {
     scrollTrigger: {
       trigger: ".testimony-section",
       start: "top bottom",
-      end: "bottom top+=620",
-      scrub: 1,
+      end: () => window.innerWidth < 768 ? "bottom top+=800" : "bottom top+=620",
+      scrub: 4,
     },
     opacity: 0,
     y: -200,
@@ -38,8 +38,8 @@ export function testimonyCardAnimation() {
     scrollTrigger: {
       trigger: ".testimony-section",
       start: "top bottom",
-      end: "bottom top+=620",
-      scrub: 1,
+      end: () => window.innerWidth < 768 ? "bottom top+=800" : "bottom top+=620",
+      scrub: 4,
     },
   opacity: 0,
   y: -60,

@@ -6,7 +6,7 @@
       disabledState ? 'cursor-default' : 'cursor-pointer',
 
       disabledState
-        ? `bg-transparent border-r-[3px] border-t-[3px] border-b-[3px] ${borderColor}`
+        ? `bg-transparent border-[3px] lg:border-l-0 lg:border-r-[3px] lg:border-t-[3px] lg:border-b-[3px] ${borderColor}`
         : (color === 'primary' ? 'bg-primary' : 'bg-complimentary'),
 
       textColor,
@@ -28,6 +28,8 @@
 </template>
 
 <script setup>
+  import { computed } from 'vue';
+
   const props = defineProps({
     buttonName: { type: String, required: true },
     color: { type: String, default: "primary" }, 
@@ -49,8 +51,9 @@
   });
 
   const iconName = computed(() => {
-    if (props.buttonName.toLowerCase() === "next") return "mdi:chevron-double-right";
-    if (props.buttonName.toLowerCase() === "previous") return "mdi:chevron-double-left";
+    const name = props.buttonName.toLowerCase();
+    if (name === "next") return "mdi:chevron-double-right";
+    if (name === "previous") return "mdi:chevron-double-left";
     return null;
   });
 </script>
