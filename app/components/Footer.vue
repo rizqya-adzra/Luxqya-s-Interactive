@@ -40,15 +40,15 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:flex justify-between gap-4 lg:gap-2">
-          <a href="https://vgen.co/luxqya_ra" class="h-14 lg:h-16 w-full lg:w-64 bg-[#5865F2] flex items-center justify-center gap-4 rounded hover:brightness-95">
+          <a href="https://discord.com/719430026940121140" class="h-14 lg:h-16 w-full lg:w-64 bg-[#5865F2] flex items-center justify-center gap-4 rounded hover:brightness-95">
             <p class="font-poppins font-bold text-white text-lg">Discord</p>
             <img src="assets/images/discord.png" alt="" class="w-8 lg:w-10 rounded-full">
           </a>
-          <a href="" class="h-14 lg:h-16 w-full lg:w-64 bg-[#B8FF26] flex items-center justify-center gap-4 rounded hover:brightness-95">
+          <a href="https://vgen.co/luxqya_ra" class="h-14 lg:h-16 w-full lg:w-64 bg-[#B8FF26] flex items-center justify-center gap-4 rounded hover:brightness-95">
             <p class="font-poppins font-bold text-black text-lg">VGen</p>
             <img src="assets/images/vgen.png" alt="" class="w-8 lg:w-10 rounded-full">
           </a>
-          <a href="mailto:rizqyaadzra68@gmail.com?subject=Commission%20Request&body=Hello%20Luxqya!%20I%20would%20like%20to%20.%20.%20." class="h-14 lg:h-16 w-full lg:w-64 bg-[#FFFFFF] flex items-center justify-center gap-4 rounded hover:brightness-95">
+          <a href="mailto:luxqya@gmail.com?subject=Commission%20Request&body=Hello%20Luxqya!%20I%20would%20like%20to%20.%20.%20." class="h-14 lg:h-16 w-full lg:w-64 bg-[#FFFFFF] flex items-center justify-center gap-4 rounded hover:brightness-95">
             <p class="font-poppins font-bold text-black text-lg">Email</p>
             <img src="assets/images/email.png" alt="" class="w-8 lg:w-10 rounded-full">
           </a>
@@ -58,7 +58,7 @@
           </a>
         </div>
 
-        <p class="font-poppins font-bold text-base lg:text-lg text-center lg:text-left">© Copyright 2025 Luxqya_ra.</p>
+        <p class="font-poppins font-bold text-base lg:text-lg text-center lg:text-left">© Copyright 2026 Luxqya_ra.</p>
       </div>
     </div>
   </div>
@@ -66,9 +66,9 @@
 
 <script setup>
 import bg from '~/assets/images/bg-4.png'
-import { navbarScroll } from "~/utils/animations/navbarScroll";
+import { navbarScroll } from "~/composables/animations/navbarScroll";
 import { ref, onMounted, onBeforeUnmount } from "vue"
-import { footerAnimation } from "~/utils/animations/footerAnimation"
+import { footerAnimation } from "~/composables/animations/footerAnimation"
 
 const footerRoot = ref(null)
 let cleanup

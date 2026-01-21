@@ -193,7 +193,7 @@
 import bg from '~/assets/images/bg-2.png'
 import bg_sm from '~/assets/images/bg-5.png'
 import { ref, onMounted, onBeforeUnmount } from "vue"
-import { servicesCardAnimation } from "~/utils/animations/servicesCard"
+import { servicesCardAnimation } from "~/composables/animations/servicesCard"
 import gsap from "gsap"
 
 const diamondEl = ref(null)

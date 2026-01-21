@@ -65,11 +65,11 @@
 
           <section v-if="activeSection === 'games'" key="games" class="space-y-5">
             <h2 class="text-xl font-black font-poppins text-start">{{ t('games') }}</h2>
-            <div class="flex w-full gap-4 flex-wrap lg:flex-nowrap">
-              <img src="assets/images/rdr2.jpg" class="w-36 sm:w-32 lg:w-44 rounded transition hover:-translate-y-3 hover:scale-105 hover:shadow-lg shrink-0">
-              <img src="assets/images/clair_obscur.jpg" class="w-36 sm:w-32 lg:w-44 rounded transition hover:-translate-y-3 hover:scale-105 hover:shadow-lg shrink-0">
-              <img src="assets/images/cyberpunk.jpg" class="w-36 sm:w-32 lg:w-44 rounded transition hover:-translate-y-3 hover:scale-105 hover:shadow-lg shrink-0">
-              <img src="assets/images/kcd2.jpg" class="w-36 sm:w-32 lg:w-44 rounded transition hover:-translate-y-3 hover:scale-105 hover:shadow-lg shrink-0">
+            <div class="flex w-full gap-4 justify-center lg:justify-normal flex-wrap lg:flex-nowrap">
+              <img src="assets/images/rdr2.jpg" class="w-28 sm:w-32 lg:w-44 rounded transition hover:-translate-y-3 hover:scale-105 hover:shadow-lg shrink-0">
+              <img src="assets/images/clair_obscur.jpg" class="w-28 sm:w-32 lg:w-44 rounded transition hover:-translate-y-3 hover:scale-105 hover:shadow-lg shrink-0">
+              <img src="assets/images/cyberpunk.jpg" class="w-28 sm:w-32 lg:w-44 rounded transition hover:-translate-y-3 hover:scale-105 hover:shadow-lg shrink-0">
+              <img src="assets/images/kcd2.jpg" class="w-28 sm:w-32 lg:w-44 rounded transition hover:-translate-y-3 hover:scale-105 hover:shadow-lg shrink-0">
             </div>
           </section>
 
@@ -78,12 +78,12 @@
     </div>
 
     <div class="
-        flex flex-row gap-3 p-4 items-center overflow-x-auto whitespace-nowrap scrollbar-hide
         bg-tertiary border-b-[4px] border-dashed border-primary
-        lg:flex-col lg:items-stretch lg:overflow-visible lg:whitespace-normal
-        lg:px-7 lg:py-5 lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none 
-        lg:border-b-0 lg:border-l-[4px]
+        lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-tl-none lg:rounded-bl-none 
+        lg:border-b-0 lg:border-l-[4px] lg:items-center lg:justify-center
+        flex lg:flex-col
     ">
+    <div class="flex flex-row gap-3 py-4 mx-2 lg:flex-col lg:px-4 lg:w-[350px] lg:mx-0 overflow-x-auto whitespace-nowrap scrollbar-hide">
       <ButtonsAboutMeSwitchButton class="hidden md:block" buttonName="Get to know me!" @click="activeSection = 'about'"
         :isActive="activeSection === 'about'" />
       <ButtonsAboutMeSwitchButton class="block md:hidden" buttonName="About Me!" @click="activeSection = 'about'"
@@ -94,6 +94,7 @@
         :isActive="activeSection === 'hobby'" />
       <ButtonsAboutMeSwitchButton buttonName="Favorite Games" @click="activeSection = 'games'"
         :isActive="activeSection === 'games'" />
+    </div>
     </div>
 
   </div>
@@ -133,7 +134,6 @@ const { t } = useLanguage()
   transform: translateY(-10px);
 }
 
-/* Utilitas tambahan untuk menyembunyikan scrollbar tapi tetap bisa di-scroll */
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }

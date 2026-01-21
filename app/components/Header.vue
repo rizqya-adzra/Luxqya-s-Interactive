@@ -19,6 +19,6 @@
 </template>
 
 <script setup>
-import { navbarScroll } from "~/utils/animations/navbarScroll";
+import { navbarScroll } from "~/composables/animations/navbarScroll";
 </script>
 

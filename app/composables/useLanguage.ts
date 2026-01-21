@@ -4,7 +4,7 @@ export const useLanguage = () => {
   const translations = {
     en: {
       name: "Name",
-      call: "You can call me",
+      call: "U can call me",
       birthday: "Birthday",
       language: "Languages",
       language1: "Indonesian, English, a bit of German",

@@ -17,7 +17,7 @@
                 Work Queue
             </a>
         </div>
-        <div id="start" class="mx-4 sm:mx-8 lg:mx-14 relative z-10 start-section">
+        <section id="start" class="mx-4 sm:mx-8 lg:mx-14 relative z-10 start-section">
             <div class="hidden lg:block absolute top-10 right-14">
                 <InteractiveStar :src="star1" class="hidden md:block" />
             </div>
@@ -25,8 +25,8 @@
                 <InteractiveStar :src="star2" class="w-10 hidden md:block" />
             </div>
             <div class="flex flex-col-reverse lg:flex-row items-center lg:items-start justify-between">
-                <StartImage class="mb-10 lg:mb-0 lg:ml-2" />
-                <StartIcon class="hidden lg:block absolute top-28 right-20" />
+                <StartImage class="mb-10 -mt-20 lg:-mt-0 lg:mb-0 lg:ml-2" />
+                <StartIcon class="absolute -top-2 right-20 md:right-24 lg:top-28 lg:right-20" />
                 <div class="flex flex-col items-center lg:items-end gap-8 lg:gap-10 pt-20 pb-7 lg:py-32 px-4 sm:px-6 lg:px-7">
                     <div class="text-center lg:text-end">
                         <p class="font-playfair font-black text-primary text-5xl md:text-6xl lg:text-8xl"> Hii It's <span class="text-complimentary underline"> Luxqya! </span> Your Beloved </p>
@@ -37,16 +37,14 @@
                     <ButtonsCommissionButton />
                 </div>
             </div>
-        </div>
+        </section>
         <section class="relative w-full text-center">
             <div class="absolute top-28 md:top-0 w-full h-full z-0 pointer-events-none">
-    
                 <picture>
                     <source 
                         media="(max-width: 767px)" 
                         srcset="assets/images/bg-1-mobile.png"
                     >
-                    
                     <img 
                         src="assets/images/bg-1.png" 
                         alt="" 
@@ -55,16 +53,12 @@
                             -mt-32 lg:-mt-56"
                     >
                 </picture>
-
             </div>
             <div class="relative z-10 pt-[110px] md:pt-[180px] lg:pt-[210px] about-section">
-                
-                <div class="absolute inset-0 pointer-events-none scale-[0.6] md:scale-[0.8] lg:scale-100 origin-top">
+                <div class="absolute top-52 right-[510px] about-anim-star1">
                     <img src="assets/images/stars/white.png" alt="" class="w-12 hidden md:block">
                 </div>
-                
                 <div id="about"></div>
-                
                 <div class="absolute top-64 right-[200px] about-anim-item">
                     <InteractiveStar :src="star1" class="w-12 hidden md:block"/>
                 </div>
@@ -77,14 +71,12 @@
                 <div class="absolute -bottom-56 right-[200px] about-anim-star2">
                     <InteractiveStar :src="star_circledwhiteblue" class="w-20 hidden md:block"/>
                 </div>
-
                 <p class="hidden md:block font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-[#FFFAF0] mb-10 about-anim-text">
                     About Me
                 </p>
                 <div class="about-anim-item px-2 lg:px-0">
                     <CardsAboutMeCard />
                 </div>
-
             </div>
         </section>
         <section id="service" class="relative mt-56 md:mt-96 lg:mt-[500px] service-section">
@@ -93,7 +85,7 @@
             </div>
             <CardsServicesCard/>
         </section>
-        <div id="testimony" class="relative testimony-section">
+        <section id="testimony" class="relative testimony-section">
             <div class="absolute top-44 left-44 testimony-anim-star">
                 <InteractiveStar :src="star1" class="w-16 hidden md:block"/>
             </div>
@@ -101,13 +93,13 @@
             <div class="testimony-anim-item">
                 <CardsTestimonyCard/>
             </div>
-        </div>
-        <div class="space-y-4 px-5 md:px-28 mt-32 bg-secondary line-section">
+        </section>
+        <section class="space-y-4 px-5 md:px-28 mt-32 bg-secondary line-section">
             <div class="h-4 w-full rounded-full bg-gradient-to-r from-complimentary to-primary line-anim-item1"></div>
             <div class="h-4 w-[85%] rounded-full bg-gradient-to-r from-complimentary to-primary line-anim-item2"></div>
             <div class="h-4 w-[75%] rounded-full bg-gradient-to-r from-complimentary to-primary line-anim-item3"></div>
-        </div>
-        <div id="gallery" class="relative gallery-section">
+        </section>
+        <section id="gallery" class="relative gallery-section">
             <p class="mt-32 md:mb-1 lg:mb-10 font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-primary text-center gallery-anim-text">Gallery</p>
             <div class="absolute top-0 right-[550px]">
                 <img src="assets/images/stars/primary.png" alt="" class="w-12">
@@ -121,8 +113,8 @@
             <div class="gallery-anim-item">
                 <CardsGalleryCard/>
             </div>
-        </div>
-        <div id="faq" class="mb-20 relative faq-section">
+        </section>
+        <section id="faq" class="mb-20 relative faq-section">
             <div class="absolute top-12 right-[200px]">
                 <InteractiveStar :src="star1" class="w-12 hidden lg:block"/>
             </div>
@@ -138,10 +130,10 @@
                     :answer="item.answer"
                 />
             </div>
-        </div>
-        <div id="contact" class="footer-section">
+        </section>
+        <section id="contact" class="footer-section">
             <Footer />
-        </div>
+        </section>
     </div>
 </template> 
 
@@ -156,17 +148,17 @@ import wip from "~/assets/images/wip.png"
 import gif_circledprimary from "~/assets/gif/red_circledstar.gif"
 import gif_circledsecondary from "~/assets/gif/blue_circledstar.gif"
 import { onMounted } from "vue";
-import { aboutPopupAnimation } from "~/utils/animations/aboutPopUp";
-import { servicesCardAnimation } from "~/utils/animations/servicesCard";
-import { testimonyCardAnimation } from "~/utils/animations/testimonyCard";
-import { lineAnimation } from "~/utils/animations/lineAnimation";
-import { navbarAnimation } from "~/utils/animations/navbarAnimation";
-import { navbarScroll } from "~/utils/animations/navbarScroll";
-import { galleryAnimation } from "~/utils/animations/galleryAnimation";
-import { faqAnimation } from "~/utils/animations/faqAnimation";
-import { footerAnimation } from "~/utils/animations/footerAnimation"
+import { aboutPopupAnimation } from "~/composables/animations/aboutPopUp";
+import { servicesCardAnimation } from "~/composables/animations/servicesCard";
+import { testimonyCardAnimation } from "~/composables/animations/testimonyCard";
+import { lineAnimation } from "~/composables/animations/lineAnimation";
+import { navbarAnimation } from "~/composables/animations/navbarAnimation";
+import { navbarScroll } from "~/composables/animations/navbarScroll";
+import { galleryAnimation } from "~/composables/animations/galleryAnimation";
+import { faqAnimation } from "~/composables/animations/faqAnimation";
+import { footerAnimation } from "~/composables/animations/footerAnimation"
 import { faqs } from "~/utils/faq"
-import { textSwapAnimation } from "~/utils/animations/startAnimation"
+import { textSwapAnimation } from "~/composables/animations/startAnimation"
 
 onMounted(() => {
   aboutPopupAnimation();
