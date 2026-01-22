@@ -30,6 +30,7 @@
         <ButtonsNav1Button buttonName="About Me" @click="handleScroll('about')" />
         <ButtonsNav1Button buttonName="Service" @click="handleScroll('service')" />
         <ButtonsNav1Button buttonName="Gallery" @click="handleScroll('gallery')" />
+        <ButtonsNav1Button buttonName="FAQ" @click="handleScroll('faq')" />
         <ButtonsNav1Button buttonName="Contact" @click="handleScroll('contact')" />
 
         <a

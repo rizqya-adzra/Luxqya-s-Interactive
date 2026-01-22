@@ -3,12 +3,16 @@ import gsap from 'gsap'
 
 const { progress, loadImages } = useAssetLoader()
 
-const imageAssets = import.meta.glob('~/assets/*.{png,jpg,jpeg,svg,webp}', {
+const imageAssets = import.meta.glob('~/assets/images/*.{png,jpg,jpeg,svg,webp}', {
   eager: true,
   import: 'default',
 })
+
 const assets = Object.values(imageAssets) as string[]
+
 onMounted(async () => {
+  console.log('Assets to load:', assets)
+
   await loadImages(assets)
 
   const tl = gsap.timeline()
