@@ -3,11 +3,11 @@ import gsap from 'gsap'
 
 const { progress, loadImages } = useAssetLoader()
 
-const assets = [
-  'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072',
-  'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064'
-]
-
+const imageAssets = import.meta.glob('~/assets/*.{png,jpg,jpeg,svg,webp}', {
+  eager: true,
+  import: 'default',
+})
+const assets = Object.values(imageAssets) as string[]
 onMounted(async () => {
   await loadImages(assets)
 
