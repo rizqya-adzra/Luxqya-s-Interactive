@@ -50,12 +50,28 @@
 
         <div class="flex-1 grid grid-cols-[auto_1fr] lg:grid-cols-2 lg:mr-20 mt-0 lg:mt-5 gap-6 md:gap-4 lg:gap-0">
           <div class="flex justify-center md:justify-start lg:justify-center">
-            <div class="w-28 md:w-28 lg:w-48 aspect-[3/4] overflow-hidden -rotate-3 lg:-rotate-6 border-4 lg:border-8 border-white shadow-md">
-              <img
-                src="assets/images/full_render_sample.jpg"
-                alt="sample"
-                class="w-full h-full object-cover"
-              />
+            <div class="flex justify-center md:justify-start lg:justify-center lg:hover:translate-x-12 transition-transform duration-300 lg:hover:scale-110">
+              <div 
+                class="w-28 md:w-28 lg:w-48 aspect-[3/4] overflow-hidden border-4 lg:border-8 border-white shadow-md relative cursor-pointer will-change-transform transition-all duration-100 ease-out"
+                :style="cardStyles.fullRender.transform ? cardStyles.fullRender : { transform: 'rotate(-6deg)' }"
+                @mousemove="(e) => handleSteamHover(e, 'fullRender')"
+                @mouseleave="resetCard('fullRender', '-6deg')"
+              >
+                <img
+                  src="assets/images/full_render_sample.jpg"
+                  alt="sample"
+                  class="w-full h-full object-cover pointer-events-none"
+                />
+                
+                <div 
+                  class="absolute inset-0 w-full h-full pointer-events-none mix-blend-overlay z-20"
+                  :style="{
+                    background: `radial-gradient(circle at var(--glare-pos, 50% 50%), rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 80%)`,
+                    opacity: cardStyles.fullRender['--glare-opacity'] || 0,
+                    transition: 'opacity 0.3s'
+                  }"
+                ></div>
+              </div>
             </div>
           </div>
           <div class="font-poppins flex flex-col justify-center">
@@ -97,14 +113,30 @@
 
         <div class="flex-1 grid grid-cols-[auto_1fr] lg:grid-cols-2 lg:mr-20 mt-8 md:mt-6 lg:mt-0 gap-6 md:gap-4 lg:gap-0">
           <div class="flex justify-center md:justify-start lg:justify-center">
-            <div class="w-20 md:w-28 lg:w-36 lg:mt-10 aspect-[3/4] overflow-hidden rotate-3 lg:rotate-6 border-4 lg:border-8 border-white shadow-md">
-              <img
-                src="assets/images/chibis_sample.jpg"
-                alt="sample"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            </div>
+            <div class="flex justify-center md:justify-start lg:justify-center lg:hover:translate-x-8 transition-transform duration-300 lg:hover:scale-125">
+              <div 
+                class="w-20 md:w-28 lg:w-36 lg:mt-10 aspect-[3/4] overflow-hidden border-4 lg:border-8 border-white shadow-md relative cursor-pointer will-change-transform transition-all duration-100 ease-out"
+                :style="cardStyles.chibis.transform ? cardStyles.chibis : { transform: 'rotate(6deg)' }"
+                @mousemove="(e) => handleSteamHover(e, 'chibis')"
+                @mouseleave="resetCard('chibis', '6deg')"
+              >
+                  <img
+                    src="assets/images/chibis_sample.jpg"
+                    alt="sample"
+                    class="w-full h-full object-cover pointer-events-none"
+                  />
+
+                    <div 
+                      class="absolute inset-0 w-full h-full pointer-events-none mix-blend-overlay z-20"
+                      :style="{
+                        background: `radial-gradient(circle at var(--glare-pos, 50% 50%), rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 80%)`,
+                        opacity: cardStyles.chibis['--glare-opacity'] || 0,
+                        transition: 'opacity 0.3s'
+                      }"
+                    ></div>
+                  </div>
+                </div>
+              </div>
             <div class="font-poppins mt-0 lg:mt-12 flex flex-col justify-center">
               <h2 class="font-bold text-2xl lg:text-3xl text-primary mb-2 lg:mb-4 text-left">Chibis</h2>
               <ul class="space-y-2 lg:space-y-3 font-medium text-sm md:text-[15px] lg:text-base">
@@ -126,20 +158,53 @@
         </div>
 
         <div class="flex-2 grid gap-4 lg:gap-7 w-full md:w-[30%] lg:w-auto lg:-mr-3 mx-auto">
-  
-          <div class="flex flex-col justify-center items-center md:items-center lg:items-center relative h-64 md:h-56 lg:h-auto">
-            <img
-              src="assets/images/char_sheet_sample.jpg"
-              class="w-64 md:w-52 lg:w-80 h-fit -rotate-3 lg:-rotate-6 border-4 md:mr-4 lg:border-8 shadow border-white z-10"
-              alt="sample"
-            />
-            <img
-              src="assets/images/char_sheet2_sample.jpg"
-              class="w-64 md:w-52 lg:w-80 h-fit shadow -mt-8 md:-mt-12 lg:-mt-5 md:ml-7 lg:mx-6 border-4 lg:border-8 border-white z-20"
-              alt="sample"
-            />
+          <div class="flex flex-col justify-center items-center md:items-center lg:items-center relative h-64 md:h-56 lg:h-auto gap-4">
+            <div class="lg:hover:scale-110 transition-transform duration-300 lg:hover:z-50">
+              <div 
+                class="relative cursor-pointer transition-all duration-100 ease-out will-change-transform"
+                :style="cardStyles.card1.transform ? cardStyles.card1 : { transform: 'rotate(-3deg)' }"
+                @mousemove="(e) => handleSteamHover(e, 'card1')"
+                @mouseleave="resetCard('card1', '-3deg')"
+              >
+                <img
+                  src="assets/images/char_sheet2_sample.jpg"
+                  class="w-64 md:w-52 lg:w-80 h-fit border-4 lg:border-8 border-white shadow-lg pointer-events-none"
+                  alt="sample"
+                />
+                
+                <div 
+                  class="absolute inset-0 w-full h-full pointer-events-none mix-blend-overlay rounded-sm z-20"
+                  :style="{
+                    background: `radial-gradient(circle at var(--glare-pos, 50% 50%), rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 80%)`,
+                    opacity: cardStyles.card1['--glare-opacity'] || 0,
+                    transition: 'opacity 0.3s ease'
+                  }"
+                ></div>
+              </div>
+            </div>
+            <div class="lg:hover:scale-110 transition-transform duration-300 z-20">
+              <div 
+                class="relative cursor-pointer transition-all duration-100 ease-out will-change-transform -mt-16 lg:-mt-10"
+                :style="cardStyles.card2.transform ? cardStyles.card2 : { transform: 'rotate(6deg)' }"
+                @mousemove="(e) => handleSteamHover(e, 'card2')"
+                @mouseleave="resetCard('card2', '6deg')"
+              >
+                <img
+                  src="assets/images/char_sheet_sample.jpg"
+                  class="w-64 md:w-52 lg:w-80 h-fit border-4 lg:border-8 border-white shadow-lg pointer-events-none"
+                  alt="sample"
+                />
+                <div 
+                  class="absolute inset-0 w-full h-full pointer-events-none mix-blend-soft-light rounded-sm z-20"
+                  :style="{
+                    background: `radial-gradient(circle at var(--glare-pos, 50% 50%), rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 80%)`,
+                    opacity: cardStyles.card2['--glare-opacity'] || 0,
+                    transition: 'opacity 0.3s ease'
+                  }"
+                ></div>
+              </div>
+            </div>
           </div>
-
           <div class="font-poppins mb-5 md:mb-0 md:mt-2 lg:mt-0">
             <h2 class="font-bold text-2xl md:text-xl lg:text-3xl text-primary mb-2 lg:mb-4 text-center">
               Character Sheet
@@ -151,7 +216,6 @@
                 <span class="hidden lg:block mx-1 tracking-widest text-gray-400 overflow-hidden truncate">.....................................</span>
                 <span class="font-bold text-complimentary whitespace-nowrap">Rp600K | 99$</span>
               </li>
-              
               <li class="flex px-6 md:px-0 md:gap-2 lg:gap-0 justify-between items-end w-full">
                 <span class="font-semibold whitespace-nowrap">Fully Rendered</span>
                 <span class="hidden lg:block mx-1 tracking-widest text-gray-400 overflow-hidden truncate">.....................................</span>
@@ -159,11 +223,8 @@
               </li>
             </ul>
           </div>
-
         </div>
-      
     </div>
-
     <div
       class="hidden md:block absolute 
              md:top-5 md:left-5 md:w-[800px] md:h-[402px]
@@ -215,4 +276,44 @@ onBeforeUnmount(() => {
   cleanup?.()
 })
 const openServicesPopUp = ref(false)
+
+const cardStyles = ref({
+  fullRender: {},
+  chibis: {},     
+  card1: {},      
+  card2: {}       
+})
+
+const handleSteamHover = (e, cardKey) => {
+  const card = e.currentTarget;
+  const rect = card.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
+  
+  const rotateX = ((y - centerY) / 10) * -1;
+  const rotateY = (x - centerX) / 10;
+  
+  const glareX = (x / rect.width) * 100;
+  const glareY = (y / rect.height) * 100;
+
+  cardStyles.value[cardKey] = {
+    transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`,
+    boxShadow: `${-rotateY}px ${rotateX}px 10px rgba(0,0,0,0.15)`,
+    zIndex: 50,
+    
+    '--glare-pos': `${glareX}% ${glareY}%`,
+    '--glare-opacity': '1' 
+  };
+}
+
+const resetCard = (cardKey, originalRotation) => {
+  cardStyles.value[cardKey] = {
+    transform: `perspective(1000px) rotateZ(${originalRotation}) scale3d(1, 1, 1)`,
+    zIndex: 10, 
+    '--glare-opacity': '0'
+  };
+}
 </script>

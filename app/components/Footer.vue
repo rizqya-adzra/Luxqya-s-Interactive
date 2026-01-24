@@ -19,7 +19,7 @@
 
         <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 lg:gap-28">
           <p class="font-poppins text-sm lg:text-base leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatges. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatges.
+            I am dedicated to delivering high-quality visual solutions tailored to your specific needs. From initial concept to final polish, let's collaborate to create something exceptional. Check my availability on VGen or contact me directly below!
           </p>
           
           <div class="flex flex-col gap-4 justify-start w-full lg:w-auto">

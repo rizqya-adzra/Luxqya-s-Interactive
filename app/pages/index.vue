@@ -59,16 +59,16 @@
                     <img src="assets/images/stars/white.png" alt="" class="w-12 hidden md:block">
                 </div>
                 <div id="about"></div>
-                <div class="absolute top-64 right-[200px] about-anim-item">
+                <div class="absolute top-64 right-[200px] about-anim-item z-20">
                     <InteractiveStar :src="star1" class="w-12 hidden md:block"/>
                 </div>
-                <div class="absolute top-54 left-[200px] about-anim-item">
+                <div class="absolute top-54 left-[200px] about-anim-item z-20">
                     <InteractiveStar :src="star_circledwhiteblue" class="w-20 hidden md:block"/>
                 </div>
-                <div class="absolute -bottom-24 left-[55px] about-anim-item z-50">
+                <div class="absolute -bottom-24 left-[55px] about-anim-item z-20">
                     <img src="assets/images/stars/twins.png" alt="" class="w-48 hidden md:block">
                 </div>
-                <div class="absolute -bottom-56 right-[200px] about-anim-star2">
+                <div class="absolute -bottom-56 right-[200px] about-anim-star2 z-20">
                     <InteractiveStar :src="star_circledwhiteblue" class="w-20 hidden md:block"/>
                 </div>
                 <p class="hidden md:block font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-[#FFFAF0] mb-10 about-anim-text">
@@ -86,7 +86,7 @@
             <CardsServicesCard/>
         </section>
         <section id="testimony" class="relative testimony-section">
-            <div class="absolute top-44 left-44 testimony-anim-star">
+            <div class="absolute top-44 left-44 testimony-anim-star z-20">
                 <InteractiveStar :src="star1" class="w-16 hidden md:block"/>
             </div>
             <p class="mt-32 font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-primary text-center testimony-anim-text">What They Say?</p>
@@ -115,10 +115,10 @@
             </div>
         </section>
         <section id="faq" class="mb-20 relative faq-section">
-            <div class="absolute top-12 right-[200px]">
+            <div class="absolute top-12 right-[200px] z-20">
                 <InteractiveStar :src="star1" class="w-12 hidden lg:block"/>
             </div>
-            <div class="absolute -top-16 left-[150px] faq-anim-star">
+            <div class="absolute -top-16 left-[150px] faq-anim-star z-20">
                 <HoverStar :src="gif_circledsecondary" size="w-44 hidden lg:block" />
             </div>
             <p class="mt-24 lg:mt-36 mb-10 md:mb-20 font-playfair text-5xl md:text-6xl lg:text-8xl font-black text-primary text-center faq-anim-text">Frequently Asked <br> Questions.</p>

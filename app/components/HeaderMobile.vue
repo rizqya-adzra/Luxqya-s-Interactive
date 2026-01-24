@@ -4,7 +4,6 @@
       :class="[
         'bg-tertiary/80 backdrop-blur-md',
         'transition-all duration-300 ease-out',
-        // PERBAIKAN 1: Tambahkan 'overflow-hidden' di sini
         'overflow-hidden', 
         isOpen
           ? 'rounded-2xl h-[395px] w-[85vw]'

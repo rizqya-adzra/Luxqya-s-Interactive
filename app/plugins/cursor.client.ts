@@ -10,16 +10,7 @@ export default defineNuxtPlugin(() => {
   });
   document.body.appendChild(container);
 
-  function getBg(x: number, y: number) {
-    const el = document.elementFromPoint(x, y) as HTMLElement;
-    if (!el) return "white";
-    const bg = getComputedStyle(el).backgroundColor;
-    return bg === "transparent" || bg === "rgba(0, 0, 0, 0)" ? "black" : bg;
-  }
-
   function createSlash(x: number, y: number) {
-    const color = getBg(x, y);
-
     const wrap = document.createElement("div");
     Object.assign(wrap.style, {
       position: "absolute",
@@ -42,7 +33,7 @@ export default defineNuxtPlugin(() => {
         top: "0",
         width: "5px",
         height: "35px",
-        background: color,
+        background: "#84cc16", 
         borderRadius: "4px",
         transform: `translateX(-50%) rotate(${angles[i]}deg) scaleY(0)`,
         opacity: "0",

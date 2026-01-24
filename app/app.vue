@@ -1,4 +1,11 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: 'Luxqya\'s Portfolio',
+  ogTitle: 'Luxqya\'s Portfolio', 
+  description: 'Portfolio of Luxqya.',
+  ogDescription: 'Portfolio of Luxqya.',
+})
+
 import gsap from 'gsap'
 
 const { progress, loadImages } = useAssetLoader()
@@ -46,9 +53,11 @@ onMounted(async () => {
       <p class="mt-2 text-xs text-white font-inter">{{ Math.round(progress) }}%</p>
     </div>
 
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <div class="selection:bg-lime-400 selection:text-black">
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </div>
   </div>
 </template>
 
