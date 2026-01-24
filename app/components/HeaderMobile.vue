@@ -6,7 +6,7 @@
         'transition-all duration-300 ease-out',
         'overflow-hidden', 
         isOpen
-          ? 'rounded-2xl h-[395px] w-[85vw]'
+          ? 'rounded-2xl h-[440px] w-[85vw]'
           : 'rounded-xl h-[48px] w-[48px]'
       ]"
       class="origin-top-right shadow-lg"

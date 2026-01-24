@@ -38,7 +38,7 @@
                 </div>
             </div>
         </section>
-        <section class="relative w-full text-center">
+        <section class="relative w-full text-center max-h-screen">
             <div class="absolute top-28 md:top-0 w-full h-full z-0 pointer-events-none">
                 <picture>
                     <source 
